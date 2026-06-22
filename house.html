@@ -3209,6 +3209,50 @@ header .navCall{
 }
 </style>
 
+
+<style id="pc-line-wide-low-2x">
+/* PC版：右下固定LINEボタンを2倍サイズ・横長・低めに調整 */
+@media(min-width:901px){
+  .fixed{
+    right:22px!important;
+    bottom:22px!important;
+    padding:13px 34px!important;
+    min-width:330px!important;
+    height:64px!important;
+    border-radius:999px!important;
+    font-size:24px!important;
+    font-weight:900!important;
+    gap:16px!important;
+    box-shadow:0 18px 45px rgba(6,199,85,.35)!important;
+  }
+
+  .fixed::before{
+    width:44px!important;
+    height:44px!important;
+    font-size:14px!important;
+    flex:0 0 44px!important;
+  }
+}
+
+/* スマホは今まで通り小さめ維持 */
+@media(max-width:900px){
+  .fixed{
+    right:12px!important;
+    bottom:12px!important;
+    padding:10px 13px!important;
+    font-size:13px!important;
+    min-width:auto!important;
+    height:auto!important;
+  }
+
+  .fixed::before{
+    width:25px!important;
+    height:25px!important;
+    font-size:9px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 

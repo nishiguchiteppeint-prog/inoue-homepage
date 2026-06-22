@@ -1959,6 +1959,344 @@ header{
   }
 }
 
+
+/* === FINAL UNIFIED BLACK HEADER + SMARTPHONE FIX === */
+header{
+  position:sticky!important;
+  top:0!important;
+  z-index:9999!important;
+  background:#0d0d0d!important;
+  border-bottom:1px solid rgba(255,255,255,.08)!important;
+  overflow:visible!important;
+}
+.nav{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:10px 14px!important;
+  display:grid!important;
+  grid-template-columns:220px 1fr 110px!important;
+  align-items:center!important;
+  gap:10px!important;
+  background:#0d0d0d!important;
+}
+.logo{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  background:#0d0d0d!important;
+  padding:0!important;
+  min-width:0!important;
+}
+.logo img{
+  width:190px!important;
+  height:auto!important;
+  max-height:94px!important;
+  object-fit:contain!important;
+}
+.links{
+  display:grid!important;
+  grid-template-columns:1.25fr 1.25fr 1.25fr .62fr!important;
+  gap:8px!important;
+  width:100%!important;
+  min-width:0!important;
+  overflow:visible!important;
+  background:transparent!important;
+  border:0!important;
+  padding:0!important;
+}
+.links a{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  min-width:0!important;
+  height:88px!important;
+  border-radius:9px!important;
+  overflow:hidden!important;
+  color:white!important;
+  font-size:0!important;
+  background-size:cover!important;
+  background-position:center!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.18)!important;
+}
+.links a::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  background:rgba(0,0,0,.45)!important;
+}
+.links a::after{
+  position:relative!important;
+  z-index:2!important;
+  color:white!important;
+  font-weight:900!important;
+  font-size:21px!important;
+  line-height:1.05!important;
+  white-space:nowrap!important;
+  text-shadow:0 2px 10px rgba(0,0,0,.55)!important;
+}
+.links a[href="land.html"]{
+  background-image:url("images/hero-land.jpg"),url("images/land11.jpg")!important;
+}
+.links a[href="land.html"]::after{
+  content:"土地"!important;
+}
+.links a[href="house.html"]{
+  background-image:url("images/hero-house.jpg"),url("images/house01.jpg")!important;
+}
+.links a[href="house.html"]::after{
+  content:"一軒家"!important;
+}
+.links a[href="mansion.html"]{
+  background-image:url("images/hero-mansion.jpg"),url("images/mansion01.jpg")!important;
+}
+.links a[href="mansion.html"]::after{
+  content:"マンション"!important;
+  font-size:19px!important;
+}
+.links a[href="company.html"]{
+  background:#1b1b1b!important;
+}
+.links a[href="company.html"]::before{
+  background:transparent!important;
+}
+.links a[href="company.html"]::after{
+  content:"会社"!important;
+  color:#d7ad5a!important;
+  font-size:16px!important;
+  text-shadow:none!important;
+}
+.navCall{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex-direction:column!important;
+  width:100%!important;
+  height:88px!important;
+  min-height:88px!important;
+  border-radius:9px!important;
+  background:#c8a45b!important;
+  color:white!important;
+  padding:0!important;
+  font-size:15px!important;
+  font-weight:900!important;
+  line-height:1.05!important;
+  white-space:nowrap!important;
+  box-shadow:none!important;
+}
+.navCall::before{
+  content:"☎"!important;
+  font-size:26px!important;
+  margin:0 0 5px 0!important;
+  color:white!important;
+}
+
+/* LINE: keep only small fixed button + top hero button */
+.fixed{
+  left:auto!important;
+  right:12px!important;
+  bottom:12px!important;
+  width:auto!important;
+  max-width:none!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:7px!important;
+  padding:10px 13px!important;
+  border-radius:999px!important;
+  background:#06c755!important;
+  color:white!important;
+  font-size:13px!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  z-index:1001!important;
+}
+.fixed::before{
+  content:"LINE";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  background:white;
+  color:#06c755;
+  font-size:9px;
+  font-weight:900;
+}
+
+/* smartphone header full display */
+@media(max-width:900px){
+  header{
+    position:sticky!important;
+    top:0!important;
+    z-index:9999!important;
+    background:#0d0d0d!important;
+    overflow:visible!important;
+  }
+  .nav{
+    grid-template-columns:92px 1fr 50px!important;
+    gap:4px!important;
+    width:100%!important;
+    max-width:none!important;
+    min-height:auto!important;
+    padding:6px!important;
+    background:#0d0d0d!important;
+  }
+  .logo{
+    width:92px!important;
+    height:52px!important;
+    justify-content:center!important;
+    overflow:hidden!important;
+  }
+  .logo img{
+    width:88px!important;
+    max-width:88px!important;
+    height:50px!important;
+    max-height:50px!important;
+    object-fit:contain!important;
+  }
+  .links{
+    grid-template-columns:1.25fr 1.25fr 1.25fr .62fr!important;
+    gap:3px!important;
+    width:100%!important;
+    min-width:0!important;
+    display:grid!important;
+  }
+  .links a{
+    height:50px!important;
+    border-radius:7px!important;
+    min-width:0!important;
+  }
+  .links a::after{
+    font-size:11px!important;
+    line-height:1!important;
+  }
+  .links a[href="mansion.html"]::after{
+    font-size:9px!important;
+  }
+  .links a[href="company.html"]::after{
+    content:"会社"!important;
+    font-size:10px!important;
+  }
+  .navCall{
+    width:50px!important;
+    height:50px!important;
+    min-height:50px!important;
+    border-radius:7px!important;
+    font-size:9px!important;
+  }
+  .navCall::before{
+    font-size:17px!important;
+    margin-bottom:3px!important;
+  }
+}
+@media(max-width:380px){
+  .nav{
+    grid-template-columns:82px 1fr 46px!important;
+    gap:3px!important;
+    padding:5px!important;
+  }
+  .logo{
+    width:82px!important;
+    height:48px!important;
+  }
+  .logo img{
+    width:78px!important;
+    height:46px!important;
+  }
+  .links a{
+    height:48px!important;
+  }
+  .links a::after{
+    font-size:10px!important;
+  }
+  .links a[href="mansion.html"]::after{
+    font-size:8px!important;
+  }
+  .navCall{
+    width:46px!important;
+    height:48px!important;
+    min-height:48px!important;
+    font-size:8px!important;
+  }
+}
+
+/* lightbox fix */
+.lightbox{
+  position:fixed!important;
+  inset:0!important;
+  display:none;
+  background:rgba(0,0,0,.88)!important;
+  z-index:9999!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:24px!important;
+}
+.lightbox.open{display:flex!important;}
+.lightbox img#lightboxImg{
+  max-width:78vw!important;
+  max-height:88vh!important;
+  width:auto!important;
+  height:auto!important;
+  object-fit:contain!important;
+  z-index:10000!important;
+}
+.lightbox button#lightboxClose{
+  position:fixed!important;
+  top:24px!important;
+  right:28px!important;
+  left:auto!important;
+  transform:none!important;
+  z-index:10003!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:white!important;
+  color:black!important;
+  font-size:18px!important;
+  font-weight:900!important;
+  padding:12px 18px!important;
+  width:auto!important;
+  height:auto!important;
+}
+.lightbox .lightboxArrow{
+  position:fixed!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  z-index:10002!important;
+  width:58px!important;
+  height:58px!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:rgba(255,255,255,.20)!important;
+  color:white!important;
+  font-size:42px!important;
+  font-weight:800!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  cursor:pointer!important;
+  padding:0!important;
+}
+.lightbox .lightboxArrow.prev{left:44px!important;right:auto!important;}
+.lightbox .lightboxArrow.next{right:44px!important;left:auto!important;}
+.lightbox .lightboxCount{
+  position:fixed!important;
+  left:50%!important;
+  bottom:28px!important;
+  transform:translateX(-50%)!important;
+  z-index:10002!important;
+  background:rgba(0,0,0,.58)!important;
+  color:white!important;
+  border-radius:999px!important;
+  padding:8px 14px!important;
+  font-weight:900!important;
+}
+
 </style>
 
 <style>
@@ -2099,107 +2437,92 @@ header{
 <script>
 let lightboxImages = [];
 let lightboxIndex = 0;
-
 function updateLightbox(){
-  const img = document.getElementById('lightboxImg');
-  const count = document.getElementById('lightboxCount');
-  if(!img || !lightboxImages.length) return;
-  img.src = lightboxImages[lightboxIndex];
-  if(count) count.textContent = (lightboxIndex + 1) + ' / ' + lightboxImages.length;
+  const img=document.getElementById('lightboxImg');
+  const count=document.getElementById('lightboxCount');
+  if(!img||!lightboxImages.length)return;
+  img.src=lightboxImages[lightboxIndex];
+  if(count) count.textContent=(lightboxIndex+1)+' / '+lightboxImages.length;
 }
-function openLightbox(src, groupImages){
-  const lb = document.getElementById('lightbox');
-  if(groupImages && groupImages.length){
-    lightboxImages = groupImages;
-    lightboxIndex = Math.max(0, lightboxImages.indexOf(src));
+function openLightbox(src,groupImages){
+  const lb=document.getElementById('lightbox');
+  if(groupImages&&groupImages.length){
+    lightboxImages=groupImages;
+    lightboxIndex=Math.max(0,lightboxImages.indexOf(src));
   }else{
-    lightboxImages = [src];
-    lightboxIndex = 0;
+    lightboxImages=[src];
+    lightboxIndex=0;
   }
-  if(lb){ lb.classList.add('open'); updateLightbox(); }
+  if(lb){lb.classList.add('open');updateLightbox();}
 }
 function lightboxMove(step){
-  if(!lightboxImages.length) return;
-  lightboxIndex = (lightboxIndex + step + lightboxImages.length) % lightboxImages.length;
+  if(!lightboxImages.length)return;
+  lightboxIndex=(lightboxIndex+step+lightboxImages.length)%lightboxImages.length;
   updateLightbox();
 }
-function scrollGallery(button, direction){
-  const wrap = button.closest('.galleryWrap');
-  const gallery = wrap ? wrap.querySelector('.detailGallery') : null;
-  if(!gallery) return;
-  gallery.scrollBy({left: gallery.clientWidth * direction, behavior: 'smooth'});
-}
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('[data-new-until]').forEach(function(el){
-    const today = new Date(); today.setHours(0,0,0,0);
-    const until = new Date(el.dataset.newUntil + 'T00:00:00');
-    if(today > until) el.style.display = 'none';
+    const today=new Date();today.setHours(0,0,0,0);
+    const until=new Date(el.dataset.newUntil+'T00:00:00');
+    if(today>until)el.style.display='none';
   });
-
-  const q = document.getElementById('q');
-  const cat = document.getElementById('cat');
-  const max = document.getElementById('maxPrice');
-  const sort = document.getElementById('sort');
-  const cards = Array.from(document.querySelectorAll('.property[data-title]'));
+  const q=document.getElementById('q');
+  const cat=document.getElementById('cat');
+  const max=document.getElementById('maxPrice');
+  const sort=document.getElementById('sort');
+  const cards=Array.from(document.querySelectorAll('.property[data-title]'));
   function apply(){
-    const query = (q && q.value || '').toLowerCase();
-    const c = cat && cat.value || '';
-    const m = parseInt(max && max.value || '0', 10);
+    const query=(q&&q.value||'').toLowerCase();
+    const c=cat&&cat.value||'';
+    const m=parseInt(max&&max.value||'0',10);
     cards.forEach(function(card){
-      const text = (card.dataset.title + ' ' + card.dataset.area + ' ' + card.dataset.cat).toLowerCase();
-      const price = parseInt(card.dataset.price || '0', 10);
-      let ok = true;
-      if(query && !text.includes(query)) ok = false;
-      if(c && card.dataset.cat !== c) ok = false;
-      if(m && price && price > m) ok = false;
-      card.classList.toggle('hidden', !ok);
+      const text=(card.dataset.title+' '+card.dataset.area+' '+card.dataset.cat).toLowerCase();
+      const price=parseInt(card.dataset.price||'0',10);
+      let ok=true;
+      if(query&&!text.includes(query))ok=false;
+      if(c&&card.dataset.cat!==c)ok=false;
+      if(m&&price&&price>m)ok=false;
+      card.classList.toggle('hidden',!ok);
     });
-    const visible = cards.filter(function(x){ return !x.classList.contains('hidden'); });
-    const no = document.querySelector('.noResults');
-    if(no) no.style.display = visible.length ? 'none' : 'block';
+    const visible=cards.filter(function(x){return !x.classList.contains('hidden');});
+    const no=document.querySelector('.noResults');
+    if(no)no.style.display=visible.length?'none':'block';
     if(sort){
-      const grid = document.querySelector('.grid');
+      const grid=document.querySelector('.grid');
       visible.sort(function(a,b){
-        const pa = parseInt(a.dataset.price || '0', 10);
-        const pb = parseInt(b.dataset.price || '0', 10);
-        if(sort.value === 'priceAsc') return (pa || 999999) - (pb || 999999);
-        if(sort.value === 'priceDesc') return (pb || 0) - (pa || 0);
+        const pa=parseInt(a.dataset.price||'0',10);
+        const pb=parseInt(b.dataset.price||'0',10);
+        if(sort.value==='priceAsc')return(pa||999999)-(pb||999999);
+        if(sort.value==='priceDesc')return(pb||0)-(pa||0);
         return 0;
-      }).forEach(function(card){ if(grid) grid.appendChild(card); });
+      }).forEach(function(card){if(grid)grid.appendChild(card);});
     }
   }
-  [q, cat, max, sort].forEach(function(el){
-    if(el){ el.addEventListener('input', apply); el.addEventListener('change', apply); }
+  [q,cat,max,sort].forEach(function(el){
+    if(el){el.addEventListener('input',apply);el.addEventListener('change',apply);}
   });
   apply();
-
-  document.querySelectorAll('.swipe').forEach(function(gallery){
-    const imgs = Array.from(gallery.querySelectorAll('img')).map(function(img){ return img.src; });
+  document.querySelectorAll('.swipe,.detailGallery').forEach(function(gallery){
+    const imgs=Array.from(gallery.querySelectorAll('img')).map(function(img){return img.src;});
     gallery.querySelectorAll('img').forEach(function(img){
-      img.addEventListener('click', function(){ openLightbox(img.src, imgs); });
+      img.addEventListener('click',function(){openLightbox(img.src,imgs);});
     });
   });
-  document.querySelectorAll('.detailGallery').forEach(function(gallery){
-    const imgs = Array.from(gallery.querySelectorAll('img')).map(function(img){ return img.src; });
-    gallery.querySelectorAll('img').forEach(function(img){
-      img.addEventListener('click', function(){ openLightbox(img.src, imgs); });
-    });
+  const close=document.getElementById('lightboxClose');
+  if(close)close.addEventListener('click',function(){
+    const lb=document.getElementById('lightbox');
+    if(lb)lb.classList.remove('open');
   });
-  const close = document.getElementById('lightboxClose');
-  if(close) close.addEventListener('click', function(){
-    const lb = document.getElementById('lightbox');
-    if(lb) lb.classList.remove('open');
-  });
-  const lbPrev = document.getElementById('lightboxPrev');
-  const lbNext = document.getElementById('lightboxNext');
-  if(lbPrev) lbPrev.addEventListener('click', function(){ lightboxMove(-1); });
-  if(lbNext) lbNext.addEventListener('click', function(){ lightboxMove(1); });
-  document.addEventListener('keydown', function(e){
-    const lb = document.getElementById('lightbox');
-    if(!lb || !lb.classList.contains('open')) return;
-    if(e.key === 'ArrowLeft') lightboxMove(-1);
-    if(e.key === 'ArrowRight') lightboxMove(1);
-    if(e.key === 'Escape') lb.classList.remove('open');
+  const lbPrev=document.getElementById('lightboxPrev');
+  const lbNext=document.getElementById('lightboxNext');
+  if(lbPrev)lbPrev.addEventListener('click',function(){lightboxMove(-1);});
+  if(lbNext)lbNext.addEventListener('click',function(){lightboxMove(1);});
+  document.addEventListener('keydown',function(e){
+    const lb=document.getElementById('lightbox');
+    if(!lb||!lb.classList.contains('open'))return;
+    if(e.key==='ArrowLeft')lightboxMove(-1);
+    if(e.key==='ArrowRight')lightboxMove(1);
+    if(e.key==='Escape')lb.classList.remove('open');
   });
 });
 </script>

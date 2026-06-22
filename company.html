@@ -205,6 +205,60 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
   .btns .btn{width:100%}
   .fixed{left:16px;right:16px;text-align:center}
 }
+
+/* lightbox next/prev controls */
+.lightboxNav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:54px;
+  height:54px;
+  border:0;
+  border-radius:999px;
+  background:rgba(255,255,255,.92);
+  color:#111;
+  font-size:30px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:1001;
+}
+.lightboxPrev{left:22px}
+.lightboxNext{right:22px}
+.lightboxCounter{
+  position:absolute;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,.65);
+  color:white;
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:14px;
+  font-weight:900;
+  z-index:1001;
+}
+.lightboxHint{
+  position:absolute;
+  left:50%;
+  top:22px;
+  transform:translateX(-50%);
+  color:rgba(255,255,255,.78);
+  font-size:13px;
+  z-index:1001;
+}
+@media(max-width:900px){
+  .lightboxNav{
+    width:46px;
+    height:46px;
+    font-size:26px;
+  }
+  .lightboxPrev{left:10px}
+  .lightboxNext{right:10px}
+}
+
 </style>
 </head>
 <body>
@@ -257,19 +311,75 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
 </footer>
 
 
+
 <div class="lightbox" id="lightbox">
+  <div class="lightboxHint">左右スワイプ・矢印で写真を切り替え</div>
   <button id="lightboxClose">閉じる</button>
+  <button class="lightboxNav lightboxPrev" id="lightboxPrev" type="button">‹</button>
   <img id="lightboxImg" src="" alt="">
+  <button class="lightboxNav lightboxNext" id="lightboxNext" type="button">›</button>
+  <div class="lightboxCounter" id="lightboxCounter">1 / 1</div>
 </div>
 
 
 <script>
-function openLightbox(src){
-  const lb=document.getElementById('lightbox');
-  const img=document.getElementById('lightboxImg');
-  if(lb&&img){img.src=src;lb.classList.add('open');}
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function collectGalleryImages(clickedImg){
+  const detailGallery = clickedImg.closest('.detailGallery');
+  const swipeGallery = clickedImg.closest('.swipe');
+
+  let scope = detailGallery || swipeGallery;
+  if(scope){
+    lightboxImages = Array.from(scope.querySelectorAll('img')).map(img => img.src);
+  }else{
+    lightboxImages = [clickedImg.src];
+  }
+
+  lightboxIndex = lightboxImages.indexOf(clickedImg.src);
+  if(lightboxIndex < 0) lightboxIndex = 0;
 }
-document.addEventListener('DOMContentLoaded',()=>{
+
+function updateLightbox(){
+  const img = document.getElementById('lightboxImg');
+  const counter = document.getElementById('lightboxCounter');
+  if(!img || !lightboxImages.length) return;
+
+  img.src = lightboxImages[lightboxIndex];
+
+  if(counter){
+    counter.textContent = (lightboxIndex + 1) + ' / ' + lightboxImages.length;
+  }
+}
+
+function openLightbox(src, clickedImg){
+  const lb = document.getElementById('lightbox');
+
+  if(clickedImg){
+    collectGalleryImages(clickedImg);
+  }else{
+    lightboxImages = [src];
+    lightboxIndex = 0;
+  }
+
+  updateLightbox();
+  if(lb) lb.classList.add('open');
+}
+
+function nextLightbox(){
+  if(!lightboxImages.length) return;
+  lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+  updateLightbox();
+}
+
+function prevLightbox(){
+  if(!lightboxImages.length) return;
+  lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+  updateLightbox();
+}
+
+document.addEventListener('DOMContentLoaded',function(){
   const q=document.getElementById('q');
   const cat=document.getElementById('cat');
   const max=document.getElementById('maxPrice');
@@ -280,46 +390,95 @@ document.addEventListener('DOMContentLoaded',()=>{
     const query=(q?.value||'').toLowerCase();
     const c=cat?.value||'';
     const m=parseInt(max?.value||'0',10);
+
     cards.forEach(card=>{
       const text=(card.dataset.title+' '+card.dataset.area+' '+card.dataset.cat).toLowerCase();
       const price=parseInt(card.dataset.price||'0',10);
       let ok=true;
+
       if(query && !text.includes(query)) ok=false;
       if(c && card.dataset.cat!==c) ok=false;
       if(m && price && price>m) ok=false;
+
       card.classList.toggle('hidden',!ok);
     });
+
     const visible=cards.filter(x=>!x.classList.contains('hidden'));
     const no=document.querySelector('.noResults');
     if(no) no.style.display=visible.length?'none':'block';
+
     if(sort){
       const grid=document.querySelector('.grid');
       visible.sort((a,b)=>{
         const pa=parseInt(a.dataset.price||'0',10);
         const pb=parseInt(b.dataset.price||'0',10);
+
         if(sort.value==='priceAsc') return (pa||999999)-(pb||999999);
         if(sort.value==='priceDesc') return (pb||0)-(pa||0);
         return 0;
       }).forEach(card=>grid.appendChild(card));
     }
   }
-  [q,cat,max,sort].forEach(el=>{if(el){el.addEventListener('input',apply);el.addEventListener('change',apply);}});
+
+  [q,cat,max,sort].forEach(el=>{
+    if(el){
+      el.addEventListener('input',apply);
+      el.addEventListener('change',apply);
+    }
+  });
+
   apply();
 
-  const today=new Date(); today.setHours(0,0,0,0);
+  const today=new Date();
+  today.setHours(0,0,0,0);
+
   document.querySelectorAll('[data-new-until]').forEach(el=>{
     const until=new Date(el.dataset.newUntil+'T00:00:00');
     if(today>until) el.style.display='none';
   });
 
   document.querySelectorAll('.swipe img,.detailGallery img').forEach(img=>{
-    img.addEventListener('click',()=>openLightbox(img.src));
+    img.addEventListener('click',()=>openLightbox(img.src,img));
   });
+
   document.getElementById('lightboxClose')?.addEventListener('click',()=>{
-    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightbox')?.classList.remove('open');
   });
+
+  document.getElementById('lightboxNext')?.addEventListener('click',nextLightbox);
+  document.getElementById('lightboxPrev')?.addEventListener('click',prevLightbox);
+
+  document.addEventListener('keydown',e=>{
+    const lb=document.getElementById('lightbox');
+    if(!lb || !lb.classList.contains('open')) return;
+
+    if(e.key==='ArrowRight') nextLightbox();
+    if(e.key==='ArrowLeft') prevLightbox();
+    if(e.key==='Escape') lb.classList.remove('open');
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const lb = document.getElementById('lightbox');
+
+  if(lb){
+    lb.addEventListener('touchstart',e=>{
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive:true});
+
+    lb.addEventListener('touchend',e=>{
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchEndX - touchStartX;
+
+      if(Math.abs(diff) > 50){
+        if(diff < 0) nextLightbox();
+        else prevLightbox();
+      }
+    }, {passive:true});
+  }
 });
 </script>
+
 
 </body>
 </html>

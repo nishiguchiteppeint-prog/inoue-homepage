@@ -1015,6 +1015,122 @@ header{
   }
 }
 
+
+/* === HEADER TYPE 4 FIT FIX === */
+header{
+  overflow:hidden!important;
+}
+.nav{
+  grid-template-columns:260px 1fr 170px!important;
+  min-height:92px!important;
+  width:100%!important;
+}
+.logo{
+  padding:18px 22px!important;
+  min-width:0!important;
+}
+.logo img{
+  width:42px!important;
+  height:42px!important;
+  flex:0 0 auto!important;
+}
+.logoText strong{
+  font-size:20px!important;
+  white-space:nowrap!important;
+}
+.logoText span{
+  font-size:11px!important;
+}
+.links{
+  min-width:0!important;
+  width:100%!important;
+}
+.links a{
+  height:92px!important;
+  min-width:0!important;
+  width:100%!important;
+}
+.links a::after{
+  font-size:22px!important;
+  padding:0 16px 20px!important;
+  white-space:nowrap!important;
+}
+.navCall{
+  height:92px!important;
+  min-width:0!important;
+  width:100%!important;
+  font-size:17px!important;
+  padding:0 10px!important;
+  white-space:nowrap!important;
+}
+@media(max-width:1100px){
+  .nav{
+    grid-template-columns:230px 1fr 150px!important;
+  }
+  .logo{
+    padding:16px 18px!important;
+  }
+  .logo img{
+    width:38px!important;
+    height:38px!important;
+  }
+  .logoText strong{
+    font-size:18px!important;
+  }
+  .links a::after{
+    font-size:20px!important;
+    padding:0 12px 18px!important;
+  }
+  .navCall{
+    font-size:15px!important;
+  }
+}
+@media(max-width:900px){
+  .nav{
+    grid-template-columns:1fr auto!important;
+    min-height:auto!important;
+  }
+  .logo{
+    padding:13px 16px!important;
+  }
+  .logo img{
+    width:36px!important;
+    height:36px!important;
+  }
+  .logoText strong{
+    font-size:17px!important;
+  }
+  .navCall{
+    min-height:64px!important;
+    height:64px!important;
+    padding:0 16px!important;
+  }
+  .links{
+    grid-column:1/-1!important;
+    display:grid!important;
+    grid-template-columns:repeat(3,1fr)!important;
+    overflow:hidden!important;
+  }
+  .links a{
+    min-width:0!important;
+    height:86px!important;
+  }
+  .links a::after{
+    font-size:18px!important;
+    padding:0 10px 15px!important;
+  }
+}
+@media(max-width:520px){
+  .links{
+    display:flex!important;
+    overflow-x:auto!important;
+  }
+  .links a{
+    min-width:62vw!important;
+    height:88px!important;
+  }
+}
+
 </style>
 </head>
 <body>

@@ -3449,6 +3449,36 @@ header .navCall{
 }
 </style>
 
+
+<style id="header-text-vertical-center-fix">
+@media(max-width:900px){
+  header .links a{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  header .links a::after{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    height:100%!important;
+    transform:translateY(3px)!important;
+  }
+
+  .companyBtn{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  .companyBtn::after,
+  .companyBtn span{
+    transform:translateY(3px)!important;
+  }
+}
+</style>
+
 </head>
 <body>
 

@@ -19,6 +19,52 @@ section{padding:76px 0}.head{display:flex;align-items:flex-end;justify-content:s
 .buy{background:var(--black);color:white;padding:80px 0}.buy .wrap{display:grid;grid-template-columns:1fr .9fr;gap:30px;align-items:center}.buy h2{font-size:clamp(42px,7vw,86px);line-height:1;letter-spacing:-.06em;margin:0 0 16px}.buy p{color:rgba(255,255,255,.74);font-size:18px}.buyCard{background:white;color:var(--ink);border-radius:28px;padding:28px}.buyCard ul{color:var(--muted);padding-left:1.2em}
 .contact{background:#ece5d8;padding:76px 0}.contactInner{max-width:940px;margin:auto;text-align:center;padding:0 20px}.contact h2{font-size:clamp(34px,5vw,62px);line-height:1.08;letter-spacing:-.04em;margin:0 0 10px}.contact p{color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 20px}.fixed{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--gold);color:white;padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 14px 34px rgba(183,137,58,.35)}.back{margin:22px 0;display:inline-flex;color:var(--muted);font-weight:900}
 @media(max-width:900px){.links{display:none}.nav{padding:13px 16px}.hero{padding:22px 0 28px}.wrap{padding:0 16px}.heroBox{min-height:500px;border-radius:28px}.heroText{padding:34px 28px 46px}.heroText .btn{width:100%;max-width:280px}.topCards,.categoryCards,.grid,.detailTop,.infoGrid,.detailSections,.buy .wrap{grid-template-columns:1fr}.head{display:block}.head p{margin-top:12px}section{padding:56px 0}.gallery{grid-template-columns:1fr 1fr}.gallery .main{grid-column:1/-1;grid-row:auto;height:260px}.gallery img{height:128px}.detailBox{padding:16px;border-radius:26px}.buy,.contact{padding:60px 0}.fixed{left:16px;right:16px;text-align:center}}
+
+/* slider / new badge / contact improvements */
+.thumb.slider{height:230px;overflow:hidden;background:#ddd}
+.thumb.slider img{position:absolute;inset:0;width:100%;height:230px;object-fit:cover;opacity:0;animation:propertySlide 9s infinite}
+.thumb.slider img:nth-child(1){animation-delay:0s}
+.thumb.slider img:nth-child(2){animation-delay:3s}
+.thumb.slider img:nth-child(3){animation-delay:6s}
+@keyframes propertySlide{
+  0%{opacity:0}
+  8%{opacity:1}
+  33%{opacity:1}
+  42%{opacity:0}
+  100%{opacity:0}
+}
+.newBadge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  z-index:3;
+  background:#e11d48;
+  color:white;
+  border-radius:999px;
+  padding:6px 11px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  box-shadow:0 8px 20px rgba(225,29,72,.32);
+}
+.thumb .photoCount{right:12px;bottom:12px;z-index:3}
+.contactPanel{
+  background:white;
+  color:var(--ink);
+  border-radius:28px;
+  padding:26px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+}
+.contactPanel p{color:var(--muted)!important}
+.contactPanel .btn.dark{background:var(--black);color:white}
+.contactPanel .btn.line{background:#06c755;color:white;border-color:#06c755}
+.contactInner .btns, .contactPanel .btns{justify-content:center}
+@media(max-width:900px){
+  .thumb.slider,.thumb.slider img{height:230px}
+  .contactPanel{padding:22px}
+}
+
 </style>
 </head>
 <body>
@@ -30,7 +76,7 @@ section{padding:76px 0}.head{display:flex;align-items:flex-end;justify-content:s
 <a class="back" href="index.html#categories">← トップへ戻る</a>
 <div class="head"><h2>一戸建て一覧</h2><p>奈良県内の一戸建て物件一覧です。物件を追加するとこのページに一覧表示できます。</p></div>
 <div class="grid"><article class="property">
-<div class="thumb"><img src="images/house01.jpg" alt="橿原市 中古戸建"><span class="photoCount">写真 12枚</span></div>
+<div class="thumb"><img src="images/house01.jpg" alt="橿原市 中古戸建"><span class="newBadge" data-new-until="2026-07-22">NEW</span><span class="photoCount">写真 12枚</span></div>
 <div class="body">
 <span class="tag">一戸建て</span>
 <h3>橿原市 中古戸建</h3>
@@ -39,7 +85,7 @@ section{padding:76px 0}.head{display:flex;align-items:flex-end;justify-content:s
 <a class="btn dark" href="property-house01.html">写真・詳細を見る</a>
 </div>
 </article><article class="property">
-<div class="thumb"><img src="images/house06.jpg" alt="天理市 中古戸建"><span class="photoCount">写真 9枚</span></div>
+<div class="thumb"><img src="images/house06.jpg" alt="天理市 中古戸建"><span class="newBadge" data-new-until="2026-07-22">NEW</span><span class="photoCount">写真 9枚</span></div>
 <div class="body">
 <span class="tag">一戸建て</span>
 <h3>天理市 中古戸建</h3>
@@ -53,5 +99,19 @@ section{padding:76px 0}.head{display:flex;align-items:flex-end;justify-content:s
 
 </main>
 <footer>株式会社INOUE｜奈良県の不動産売買・買取<br>TEL：080-6700-5476｜営業時間：10:00〜19:00｜定休日：土日休み<br>© 2026 INOUE Co., Ltd.</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var today = new Date();
+  today.setHours(0,0,0,0);
+  document.querySelectorAll("[data-new-until]").forEach(function(el) {
+    var until = new Date(el.getAttribute("data-new-until") + "T00:00:00");
+    if (today > until) {
+      el.style.display = "none";
+    }
+  });
+});
+</script>
+
 </body>
 </html>

@@ -1279,69 +1279,46 @@ header{
 }
 
 
-/* === TYPE 4 HEADER RESTORE + 2C LOGO LARGE === */
+/* === FINAL 2-C LOGO HEADER === */
 header{
   position:sticky!important;
   top:0!important;
   z-index:1000!important;
-  background:#111!important;
-  border-bottom:1px solid rgba(255,255,255,.14)!important;
+  background:#fff!important;
+  border-bottom:1px solid rgba(17,17,17,.12)!important;
   overflow:hidden!important;
 }
 .nav{
   max-width:none!important;
   width:100%!important;
-  padding:0!important;
+  padding:0 24px!important;
   margin:0!important;
   display:grid!important;
-  grid-template-columns:330px 1fr 170px!important;
-  align-items:stretch!important;
-  gap:0!important;
-  min-height:118px!important;
+  grid-template-columns:300px 1fr 220px!important;
+  align-items:center!important;
+  gap:22px!important;
+  min-height:150px!important;
+  background:#fff!important;
 }
 .logo{
   display:flex!important;
   align-items:center!important;
-  gap:14px!important;
-  padding:20px 24px!important;
-  background:#111!important;
-  color:white!important;
-  border-right:1px solid rgba(255,255,255,.14)!important;
+  justify-content:flex-start!important;
+  padding:10px 0!important;
+  background:transparent!important;
   min-width:0!important;
 }
 .logo img{
-  width:138px!important;
+  width:245px!important;
   height:auto!important;
-  max-height:78px!important;
+  max-height:132px!important;
   object-fit:contain!important;
-  flex:0 0 auto!important;
-}
-.logoText{
-  display:flex!important;
-  flex-direction:column!important;
-  line-height:1.08!important;
-  min-width:0!important;
-}
-.logoText strong{
-  color:white!important;
-  font-size:24px!important;
-  font-weight:900!important;
-  letter-spacing:.08em!important;
-  white-space:nowrap!important;
-}
-.logoText span{
-  color:#d7ad5a!important;
-  font-size:13px!important;
-  font-weight:800!important;
-  letter-spacing:.22em!important;
-  margin-top:6px!important;
-  white-space:nowrap!important;
 }
 .links{
   display:grid!important;
-  grid-template-columns:1fr 1fr 1fr 0.72fr!important;
-  gap:0!important;
-  background:#111!important;
+  grid-template-columns:1fr 1fr 1fr 0.78fr!important;
+  gap:10px!important;
+  background:transparent!important;
   border:0!important;
   border-radius:0!important;
   padding:0!important;
@@ -1353,27 +1330,25 @@ header{
   min-width:0!important;
   width:100%!important;
   height:118px!important;
-  border-left:1px solid rgba(255,255,255,.18)!important;
-  border-radius:0!important;
+  border:0!important;
+  border-radius:10px!important;
   padding:0!important;
   color:white!important;
   display:flex!important;
-  align-items:flex-end!important;
-  justify-content:flex-start!important;
+  align-items:center!important;
+  justify-content:center!important;
   overflow:hidden!important;
   background-size:cover!important;
   background-position:center!important;
   transition:.25s ease!important;
   font-size:0!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.14)!important;
 }
 .links a::before{
   content:""!important;
   position:absolute!important;
   inset:0!important;
-  width:auto!important;
-  height:auto!important;
-  border-radius:0!important;
-  background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.18))!important;
+  background:linear-gradient(0deg,rgba(0,0,0,.56),rgba(0,0,0,.18))!important;
   z-index:1!important;
 }
 .links a::after{
@@ -1381,9 +1356,10 @@ header{
   z-index:2!important;
   display:block!important;
   color:white!important;
-  font-size:21px!important;
+  font-size:28px!important;
+  line-height:1.1!important;
   font-weight:900!important;
-  padding:0 16px 20px!important;
+  text-align:center!important;
   text-shadow:0 3px 18px rgba(0,0,0,.55)!important;
   white-space:nowrap!important;
 }
@@ -1391,63 +1367,63 @@ header{
   background-image:url("images/hero-land.jpg"),url("images/land11.jpg")!important;
 }
 .links a[href="land.html"]::after{
-  content:"土地  →"!important;
+  content:"土地\A Land"!important;
+  white-space:pre!important;
 }
 .links a[href="house.html"]{
   background-image:url("images/hero-house.jpg"),url("images/house01.jpg")!important;
 }
 .links a[href="house.html"]::after{
-  content:"一軒家  →"!important;
+  content:"一軒家\A House"!important;
+  white-space:pre!important;
 }
 .links a[href="mansion.html"]{
   background-image:url("images/hero-mansion.jpg"),url("images/mansion01.jpg")!important;
 }
 .links a[href="mansion.html"]::after{
-  content:"マンション  →"!important;
+  content:"マンション\A Mansion"!important;
+  white-space:pre!important;
 }
 .links a[href="company.html"]{
-  background:#111!important;
+  background:#fff!important;
+  border:1px solid rgba(17,17,17,.25)!important;
+  box-shadow:none!important;
 }
 .links a[href="company.html"]::before{
-  background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.70))!important;
+  background:transparent!important;
 }
 .links a[href="company.html"]::after{
-  content:"会社概要"!important;
-  color:#d7ad5a!important;
-  font-size:18px!important;
-  padding:0 12px 20px!important;
+  content:"▥ 会社概要"!important;
+  color:#111!important;
+  font-size:20px!important;
   text-shadow:none!important;
 }
 .links a:hover{
-  filter:brightness(1.08)!important;
-  transform:none!important;
+  filter:brightness(1.06)!important;
+  transform:translateY(-1px)!important;
 }
 .navCall{
-  height:118px!important;
-  min-width:0!important;
-  width:100%!important;
-  border-radius:0!important;
-  background:#111!important;
+  height:72px!important;
+  border-radius:10px!important;
+  background:#050505!important;
   color:#d7ad5a!important;
   display:flex!important;
+  flex-direction:column!important;
   align-items:center!important;
   justify-content:center!important;
-  font-size:16px!important;
+  gap:2px!important;
+  font-size:24px!important;
   font-weight:900!important;
-  border-left:1px solid rgba(255,255,255,.14)!important;
-  box-shadow:none!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.18)!important;
   white-space:nowrap!important;
-  padding:0 10px!important;
+  padding:0 14px!important;
 }
 .navCall::before{
   content:"☎";
-  margin-right:7px;
-}
-.navCall:hover{
-  background:#181818!important;
+  font-size:24px;
 }
 
-/* fixed LINE small */
+/* compact fixed LINE */
 .fixed{
   left:auto!important;
   right:14px!important;
@@ -1481,7 +1457,7 @@ header{
   font-weight:900;
 }
 
-/* lightbox strong fix */
+/* lightbox fix */
 .lightbox{
   position:fixed!important;
   inset:0!important;
@@ -1574,59 +1550,57 @@ header{
 .floorAreaNote{font-size:13px;color:var(--muted);margin-top:6px;}
 
 @media(max-width:1180px){
-  .nav{grid-template-columns:290px 1fr 145px!important;min-height:104px!important;}
-  .logo{padding:16px 18px!important;}
-  .logo img{width:118px!important;max-height:66px!important;}
-  .logoText strong{font-size:20px!important;}
-  .logoText span{font-size:11px!important;}
-  .links a{height:104px!important;}
-  .links a::after{font-size:19px!important;padding:0 12px 18px!important;}
-  .links a[href="company.html"]::after{font-size:16px!important;}
-  .navCall{height:104px!important;font-size:14px!important;}
+  .nav{
+    grid-template-columns:245px 1fr 170px!important;
+    gap:14px!important;
+    min-height:132px!important;
+    padding:0 16px!important;
+  }
+  .logo img{width:220px!important;max-height:118px!important;}
+  .links{gap:8px!important;}
+  .links a{height:100px!important;}
+  .links a::after{font-size:23px!important;}
+  .links a[href="company.html"]::after{font-size:17px!important;}
+  .navCall{height:68px!important;font-size:19px!important;}
 }
 @media(max-width:900px){
   .nav{
     grid-template-columns:1fr auto!important;
     min-height:auto!important;
-  }
-  .logo{
-    padding:12px 14px!important;
+    padding:8px 12px!important;
+    gap:10px!important;
   }
   .logo img{
-    width:104px!important;
-    max-height:56px!important;
-  }
-  .logoText strong{
-    font-size:17px!important;
-  }
-  .logoText span{
-    font-size:10px!important;
-    letter-spacing:.18em!important;
+    width:168px!important;
+    max-height:92px!important;
   }
   .navCall{
-    height:64px!important;
-    min-height:64px!important;
+    height:56px!important;
+    min-height:56px!important;
     padding:0 14px!important;
-    font-size:13px!important;
+    font-size:14px!important;
+    border-radius:999px!important;
   }
+  .navCall::before{font-size:17px!important;}
   .links{
     grid-column:1/-1!important;
     display:flex!important;
     overflow-x:auto!important;
     -webkit-overflow-scrolling:touch!important;
+    gap:8px!important;
   }
   .links::-webkit-scrollbar{display:none!important;}
   .links a{
     flex:0 0 auto!important;
-    min-width:58vw!important;
-    height:88px!important;
+    min-width:56vw!important;
+    height:92px!important;
+    border-radius:12px!important;
   }
   .links a[href="company.html"]{
-    min-width:44vw!important;
+    min-width:42vw!important;
   }
   .links a::after{
-    font-size:18px!important;
-    padding:0 12px 15px!important;
+    font-size:20px!important;
   }
   .links a[href="company.html"]::after{
     font-size:16px!important;
@@ -1655,6 +1629,95 @@ header{
   .lightbox .lightboxArrow.next{right:14px!important;}
 }
 
+
+/* === MOBILE HEADER 4 ITEMS FIT FIX === */
+@media(max-width:900px){
+  header{
+    overflow:visible!important;
+  }
+  .nav{
+    grid-template-columns:1fr auto!important;
+    padding:8px 10px 10px!important;
+    gap:8px!important;
+  }
+  .logo img{
+    width:138px!important;
+    max-height:74px!important;
+  }
+  .navCall{
+    height:48px!important;
+    min-height:48px!important;
+    padding:0 12px!important;
+    font-size:13px!important;
+    border-radius:999px!important;
+  }
+  .navCall::before{
+    font-size:15px!important;
+    margin-right:5px!important;
+  }
+  .links{
+    grid-column:1/-1!important;
+    display:grid!important;
+    grid-template-columns:repeat(4,1fr)!important;
+    gap:6px!important;
+    overflow:visible!important;
+    width:100%!important;
+  }
+  .links a{
+    min-width:0!important;
+    width:100%!important;
+    height:58px!important;
+    border-radius:10px!important;
+    flex:none!important;
+  }
+  .links a::before{
+    background:linear-gradient(0deg,rgba(0,0,0,.50),rgba(0,0,0,.18))!important;
+  }
+  .links a::after{
+    font-size:14px!important;
+    line-height:1.15!important;
+    white-space:normal!important;
+  }
+  .links a[href="land.html"]::after{
+    content:"土地"!important;
+  }
+  .links a[href="house.html"]::after{
+    content:"一軒家"!important;
+  }
+  .links a[href="mansion.html"]::after{
+    content:"マンション"!important;
+    font-size:13px!important;
+  }
+  .links a[href="company.html"]::after{
+    content:"会社概要"!important;
+    font-size:13px!important;
+  }
+}
+@media(max-width:420px){
+  .logo img{
+    width:126px!important;
+  }
+  .navCall{
+    height:44px!important;
+    min-height:44px!important;
+    font-size:12px!important;
+    padding:0 10px!important;
+  }
+  .links{
+    gap:5px!important;
+  }
+  .links a{
+    height:54px!important;
+  }
+  .links a::after{
+    font-size:13px!important;
+  }
+  .links a[href="mansion.html"]::after,
+  .links a[href="company.html"]::after{
+    font-size:12px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1663,10 +1726,6 @@ header{
   <div class="nav">
     <a class="logo" href="index.html">
       <img src="logo-inoue.svg" alt="株式会社INOUE ロゴ">
-      <span class="logoText">
-        <strong>株式会社INOUE</strong>
-        <span>REAL ESTATE</span>
-      </span>
     </a>
 
     <nav class="links">

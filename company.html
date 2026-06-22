@@ -3081,6 +3081,114 @@ header .navCall{
 }
 </style>
 
+
+<style id="detail-gallery-swipe-fix">
+/* === DETAIL GALLERY SWIPE FIX === */
+.galleryWrap{
+  position:relative!important;
+  width:100%!important;
+  overflow:hidden!important;
+  border-radius:24px!important;
+}
+
+.detailGallery{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  scroll-snap-type:x mandatory!important;
+  -webkit-overflow-scrolling:touch!important;
+  touch-action:pan-x!important;
+  overscroll-behavior-x:contain!important;
+  width:100%!important;
+  height:450px!important;
+  border-radius:24px!important;
+  background:#ddd!important;
+}
+
+.detailGallery::-webkit-scrollbar{
+  display:none!important;
+}
+
+.detailGallery img{
+  flex:0 0 100%!important;
+  min-width:100%!important;
+  width:100%!important;
+  height:450px!important;
+  object-fit:cover!important;
+  scroll-snap-align:start!important;
+  cursor:pointer!important;
+  user-select:none!important;
+  -webkit-user-drag:none!important;
+}
+
+.galleryNav{
+  position:absolute!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  z-index:20!important;
+  width:48px!important;
+  height:48px!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:rgba(0,0,0,.42)!important;
+  color:#fff!important;
+  font-size:32px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  cursor:pointer!important;
+}
+
+.galleryNav.prev{
+  left:12px!important;
+}
+
+.galleryNav.next{
+  right:12px!important;
+}
+
+.thumbRow{
+  display:flex!important;
+  gap:8px!important;
+  overflow-x:auto!important;
+  -webkit-overflow-scrolling:touch!important;
+}
+
+.thumbRow img{
+  flex:0 0 auto!important;
+}
+
+@media(max-width:900px){
+  .galleryWrap{
+    border-radius:18px!important;
+  }
+
+  .detailGallery{
+    height:330px!important;
+    border-radius:18px!important;
+  }
+
+  .detailGallery img{
+    height:330px!important;
+  }
+
+  .galleryNav{
+    width:42px!important;
+    height:42px!important;
+    font-size:28px!important;
+  }
+
+  .galleryNav.prev{
+    left:8px!important;
+  }
+
+  .galleryNav.next{
+    right:8px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -3263,6 +3371,33 @@ document.addEventListener('DOMContentLoaded', function(){
     if(target && currentFile !== target){
       location.href = target;
     }
+  });
+});
+</script>
+
+
+<script id="detail-gallery-swipe-js">
+function scrollGallery(button, direction){
+  const wrap = button.closest('.galleryWrap');
+  const gallery = wrap ? wrap.querySelector('.detailGallery') : null;
+  if(!gallery) return;
+  gallery.scrollBy({
+    left: gallery.clientWidth * direction,
+    behavior: 'smooth'
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.detailGallery').forEach(function(gallery){
+    const imgs = Array.from(gallery.querySelectorAll('img')).map(function(img){ return img.src; });
+
+    gallery.querySelectorAll('img').forEach(function(img){
+      img.addEventListener('click', function(){
+        if(typeof openLightbox === 'function'){
+          openLightbox(img.src, imgs);
+        }
+      });
+    });
   });
 });
 </script>

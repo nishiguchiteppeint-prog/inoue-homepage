@@ -320,6 +320,145 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
   }
 }
 
+
+/* === STRONG LIGHTBOX ARROW POSITION FIX === */
+.lightbox{
+  position:fixed!important;
+  inset:0!important;
+  display:none;
+  background:rgba(0,0,0,.88)!important;
+  z-index:9999!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:24px!important;
+}
+.lightbox.open{
+  display:flex!important;
+}
+.lightbox img#lightboxImg{
+  max-width:78vw!important;
+  max-height:88vh!important;
+  width:auto!important;
+  height:auto!important;
+  object-fit:contain!important;
+  z-index:10000!important;
+}
+.lightbox button#lightboxClose{
+  position:fixed!important;
+  top:24px!important;
+  right:28px!important;
+  left:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  z-index:10003!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:white!important;
+  color:black!important;
+  font-size:18px!important;
+  font-weight:900!important;
+  padding:12px 18px!important;
+  width:auto!important;
+  height:auto!important;
+}
+.lightbox .lightboxArrow{
+  position:fixed!important;
+  top:50%!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+  z-index:10002!important;
+  width:58px!important;
+  height:58px!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:rgba(255,255,255,.20)!important;
+  color:white!important;
+  font-size:42px!important;
+  font-weight:800!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  cursor:pointer!important;
+  padding:0!important;
+  backdrop-filter:blur(6px)!important;
+}
+.lightbox .lightboxArrow.prev{
+  left:44px!important;
+  right:auto!important;
+}
+.lightbox .lightboxArrow.next{
+  right:44px!important;
+  left:auto!important;
+}
+.lightbox .lightboxArrow:hover{
+  background:rgba(255,255,255,.34)!important;
+}
+.lightbox .lightboxCount{
+  position:fixed!important;
+  left:50%!important;
+  bottom:28px!important;
+  transform:translateX(-50%)!important;
+  z-index:10002!important;
+  background:rgba(0,0,0,.58)!important;
+  color:white!important;
+  border-radius:999px!important;
+  padding:8px 14px!important;
+  font-weight:900!important;
+}
+.galleryWrap{
+  position:relative!important;
+}
+.galleryWrap .galleryNav{
+  position:absolute!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  z-index:10!important;
+  width:52px!important;
+  height:52px!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:rgba(0,0,0,.40)!important;
+  color:white!important;
+  font-size:34px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  cursor:pointer!important;
+}
+.galleryWrap .galleryNav.prev{
+  left:14px!important;
+}
+.galleryWrap .galleryNav.next{
+  right:14px!important;
+}
+.floorAreaNote{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:6px;
+}
+@media(max-width:900px){
+  .lightbox img#lightboxImg{
+    max-width:76vw!important;
+    max-height:82vh!important;
+  }
+  .lightbox button#lightboxClose{
+    top:18px!important;
+    right:18px!important;
+    padding:10px 15px!important;
+  }
+  .lightbox .lightboxArrow{
+    width:48px!important;
+    height:48px!important;
+    font-size:34px!important;
+  }
+  .lightbox .lightboxArrow.prev{
+    left:14px!important;
+  }
+  .lightbox .lightboxArrow.next{
+    right:14px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -424,11 +563,12 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
 
 
 
+
 <div class="lightbox" id="lightbox">
-  <button id="lightboxClose">閉じる</button>
-  <button class="lightboxArrow prev" id="lightboxPrev" type="button">‹</button>
+  <button id="lightboxClose" type="button">閉じる</button>
+  <button class="lightboxArrow prev" id="lightboxPrev" type="button" aria-label="前の写真">‹</button>
   <img id="lightboxImg" src="" alt="">
-  <button class="lightboxArrow next" id="lightboxNext" type="button">›</button>
+  <button class="lightboxArrow next" id="lightboxNext" type="button" aria-label="次の写真">›</button>
   <div class="lightboxCount" id="lightboxCount">1 / 1</div>
 </div>
 
@@ -470,8 +610,7 @@ function scrollGallery(button, direction){
   const wrap = button.closest('.galleryWrap');
   const gallery = wrap ? wrap.querySelector('.detailGallery') : null;
   if(!gallery) return;
-  const amount = gallery.clientWidth * direction;
-  gallery.scrollBy({left: amount, behavior: 'smooth'});
+  gallery.scrollBy({left: gallery.clientWidth * direction, behavior: 'smooth'});
 }
 
 document.addEventListener('DOMContentLoaded', function(){

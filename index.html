@@ -636,16 +636,207 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
   }
 }
 
+
+/* === HEADER CATEGORY DESIGN === */
+.nav{
+  gap:18px!important;
+}
+.links{
+  align-items:center!important;
+  gap:10px!important;
+  background:rgba(255,255,255,.72);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:6px;
+  box-shadow:0 10px 30px rgba(0,0,0,.04);
+}
+.links a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border-radius:999px;
+  padding:9px 13px;
+  font-weight:900;
+  color:var(--ink)!important;
+  transition:.2s ease;
+  white-space:nowrap;
+}
+.links a:hover{
+  background:var(--black);
+  color:white!important;
+  transform:translateY(-1px);
+}
+.links a::before{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#f2e5cf;
+  color:#8b642c;
+  font-size:13px;
+  line-height:1;
+}
+.links a[href="land.html"]::before{
+  content:"土";
+}
+.links a[href="house.html"]::before{
+  content:"家";
+}
+.links a[href="mansion.html"]::before{
+  content:"M";
+}
+.links a[href="company.html"]::before{
+  content:"会";
+}
+.links a:hover::before{
+  background:white;
+  color:var(--black);
+}
+.navCall{
+  box-shadow:0 12px 28px rgba(0,0,0,.14);
+}
+@media(max-width:900px){
+  header{
+    overflow:hidden;
+  }
+  .nav{
+    display:grid!important;
+    grid-template-columns:1fr auto!important;
+    gap:10px!important;
+  }
+  .logo{
+    grid-column:1/2;
+  }
+  .navCall{
+    grid-column:2/3;
+    grid-row:1;
+  }
+  .links{
+    grid-column:1/-1;
+    display:flex!important;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    border-radius:18px;
+    padding:6px;
+    gap:8px!important;
+  }
+  .links::-webkit-scrollbar{
+    display:none;
+  }
+  .links a{
+    font-size:13px;
+    padding:8px 12px;
+  }
+}
+
+
+/* === INOUE LOGO + PREMIUM HEADER === */
+.logo{
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  font-weight:900!important;
+  letter-spacing:.04em!important;
+}
+.logo img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  display:block;
+}
+.logoText{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+}
+.logoText strong{
+  font-size:20px;
+  letter-spacing:.08em;
+}
+.logoText span{
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:.18em;
+  margin-top:3px;
+}
+.links{
+  background:white!important;
+  border:1px solid var(--line)!important;
+  border-radius:0!important;
+  padding:0!important;
+  box-shadow:none!important;
+  gap:0!important;
+}
+.links a{
+  min-width:132px;
+  justify-content:center;
+  border-left:1px solid var(--line);
+  border-radius:0!important;
+  padding:13px 20px!important;
+  font-weight:900!important;
+  color:var(--ink)!important;
+}
+.links a:first-child{
+  border-left:0;
+}
+.links a::before{
+  background:transparent!important;
+  color:#bd8d36!important;
+  font-size:15px!important;
+  width:auto!important;
+  height:auto!important;
+}
+.links a:hover{
+  background:var(--black)!important;
+  color:#d7ad5a!important;
+  transform:none!important;
+}
+.links a:hover::before{
+  background:transparent!important;
+  color:#d7ad5a!important;
+}
+.navCall{
+  background:var(--black)!important;
+  color:#d7ad5a!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.18)!important;
+}
+@media(max-width:900px){
+  .logo img{
+    width:36px;
+    height:36px;
+  }
+  .logoText strong{
+    font-size:18px;
+  }
+  .logoText span{
+    display:none;
+  }
+  .links{
+    background:rgba(255,255,255,.88)!important;
+    border-radius:18px!important;
+    padding:6px!important;
+    gap:6px!important;
+  }
+  .links a{
+    min-width:auto;
+    border-left:0;
+    border-radius:999px!important;
+    padding:9px 12px!important;
+  }
+}
+
 </style>
 </head>
 <body>
 
 <header>
   <div class="nav">
-    <a class="logo" href="index.html">株式会社INOUE</a>
+    <a class="logo" href="index.html"><img src="logo-inoue.svg" alt="株式会社INOUE ロゴ"><span class="logoText"><strong>株式会社INOUE</strong><span>REAL ESTATE</span></span></a>
     <nav class="links">
       <a href="land.html">土地</a>
-      <a href="house.html">一戸建て</a>
+      <a href="house.html">一軒家</a>
       <a href="mansion.html">マンション</a>
       <a href="company.html">会社概要</a>
     </nav>
@@ -717,7 +908,7 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
         <div class="categoryContent">
           <h3>一戸建て</h3>
           <p>中古戸建、空き家、リフォーム向け物件など。</p>
-          <span class="btn outline">一戸建て一覧を見る</span>
+          <span class="btn outline">一軒家一覧を見る</span>
         </div>
       </a>
       <a class="categoryCard mansion" href="mansion.html">

@@ -1,103 +1,82 @@
-<!doctype html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>奈良市 中古マンション｜株式会社INOUE</title>
-<meta name="description" content="株式会社INOUEの奈良市 中古マンションページです。奈良県の土地・一戸建て・マンションの売買、買取相談に対応しています。">
-<style>
-:root{--bg:#f7f5ef;--ink:#151515;--muted:#6e6a62;--line:rgba(21,21,21,.12);--card:#fff;--black:#111;--gold:#b7893a;--goldSoft:#f2e5cf;--shadow:0 18px 55px rgba(0,0,0,.09);--radius:24px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.wrap{max-width:1240px;margin:auto;padding:0 20px}
-header{position:sticky;top:0;z-index:50;background:rgba(247,245,239,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{max-width:1240px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.logo{font-weight:900;font-size:21px;letter-spacing:.08em;white-space:nowrap}.links{display:flex;gap:22px;color:var(--muted);font-size:14px}.cta{background:var(--black);color:white;padding:10px 17px;border-radius:999px;font-weight:900;white-space:nowrap}
-.hero{padding:42px 0 34px}.heroBox{min-height:520px;border-radius:36px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(110deg,rgba(0,0,0,.78),rgba(0,0,0,.22)),url("images/main.jpg") center/cover,linear-gradient(135deg,#222,#555);display:flex;align-items:flex-end}.heroText{padding:clamp(28px,6vw,64px);color:white;max-width:900px}.eyebrow{color:var(--goldSoft);font-size:13px;font-weight:900;letter-spacing:.18em;margin-bottom:14px}h1{font-size:clamp(38px,7vw,82px);line-height:1.05;letter-spacing:-.05em;margin:0}.heroText p{font-size:18px;color:rgba(255,255,255,.86);max-width:700px;margin:22px 0 30px}
-.btns{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 20px;font-weight:900;border:1px solid var(--line);background:white;color:var(--black)}.btn.gold{background:var(--gold);color:white;border-color:var(--gold)}.btn.line{background:#06c755;color:white;border-color:#06c755}.btn.dark{background:var(--black);color:white;border-color:var(--black)}
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>奈良市 中古マンション｜株式会社INOUE</title><style>
+:root{
+  --bg:#f7f5ef;--ink:#151515;--muted:#6e6a62;--line:rgba(21,21,21,.12);
+  --card:#fff;--black:#111;--gold:#b7893a;--goldSoft:#f2e5cf;
+  --green:#06c755;--red:#e11d48;--blue:#2563eb;--orange:#f97316;--gray:#333;
+  --shadow:0 18px 55px rgba(0,0,0,.09);--radius:24px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.wrap{max-width:1240px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;background:rgba(247,245,239,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{max-width:1240px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:900;font-size:21px;letter-spacing:.08em;white-space:nowrap}.links{display:flex;gap:20px;color:var(--muted);font-size:14px}.cta{background:var(--black);color:white;padding:10px 17px;border-radius:999px;font-weight:900;white-space:nowrap}
+.hero{padding:42px 0 34px}.heroBox{min-height:520px;border-radius:36px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(110deg,rgba(0,0,0,.78),rgba(0,0,0,.22)),url("images/main.jpg") center/cover,linear-gradient(135deg,#222,#555);display:flex;align-items:flex-end}
+.heroText{padding:clamp(28px,6vw,64px);color:white;max-width:900px}.eyebrow{color:var(--goldSoft);font-size:13px;font-weight:900;letter-spacing:.18em;margin-bottom:14px}
+h1{font-size:clamp(38px,7vw,82px);line-height:1.05;letter-spacing:-.05em;margin:0}.heroText p{font-size:18px;color:rgba(255,255,255,.86);max-width:700px;margin:22px 0 30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 20px;font-weight:900;border:1px solid var(--line);background:white;color:var(--black);cursor:pointer}.btn.gold{background:var(--gold);color:white;border-color:var(--gold)}.btn.dark{background:var(--black);color:white;border-color:var(--black)}.btn.line{background:var(--green);color:white;border-color:var(--green)}
 .topCards,.categoryCards{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.topCard,.categoryCard{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 16px 42px rgba(0,0,0,.08)}.topCard b{display:block;font-size:22px;margin-bottom:4px}.topCard span,.categoryCard p{color:var(--muted);font-size:14px}.categoryCard h3{font-size:28px;margin:0 0 8px}
 section{padding:76px 0}.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:26px}.head h2{font-size:clamp(30px,4.5vw,56px);line-height:1.08;letter-spacing:-.04em;margin:0}.head p{max-width:560px;margin:0;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.property{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}.thumb{position:relative}.thumb img{width:100%;height:230px;object-fit:cover;background:#ddd}.photoCount{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.72);color:white;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:900}.body{padding:22px}.tag{display:inline-block;background:var(--goldSoft);color:#8a642b;border-radius:999px;padding:4px 10px;font-weight:900;font-size:12px;margin-bottom:8px}.property h3{font-size:22px;line-height:1.35;margin:0 0 6px}.price{font-size:23px;color:var(--gold);font-weight:900;margin:8px 0 12px}.spec{display:grid;gap:5px;color:var(--muted);font-size:14px;margin-bottom:18px}
-.detailHero{padding:38px 0 20px}.detailBox{background:white;border:1px solid var(--line);border-radius:34px;padding:24px;box-shadow:var(--shadow);margin-bottom:34px}.detailTop{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}.gallery{display:grid;grid-template-columns:2fr 1fr;gap:10px}.gallery img{width:100%;height:160px;object-fit:cover;border-radius:16px;background:#ddd}.gallery .main{height:330px;grid-row:span 2}.detailText{padding:8px 4px}.detailText h1{color:var(--ink);font-size:clamp(34px,5vw,60px)}.detailText p{color:var(--muted)}
+.controls{background:white;border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:var(--shadow);margin-bottom:24px;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:12px}.controls input,.controls select{width:100%;border:1px solid var(--line);border-radius:999px;padding:12px 14px;font:inherit;background:#fbfaf7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.property{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative}.property.hidden{display:none}.property.sold{opacity:.78}.property.sold .swipe{filter:grayscale(.8)}
+.swipe{position:relative;height:230px;overflow-x:auto;display:flex;scroll-snap-type:x mandatory;background:#ddd;-webkit-overflow-scrolling:touch}.swipe::-webkit-scrollbar{display:none}.swipe img{height:230px;min-width:100%;width:100%;object-fit:cover;scroll-snap-align:start;cursor:pointer}.photoCount{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.72);color:white;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:900;z-index:3}.badge{position:absolute;top:12px;right:12px;z-index:3;color:white;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:900;letter-spacing:.08em;box-shadow:0 8px 20px rgba(0,0,0,.18)}.badge.new{background:var(--red)}.badge.changed{background:var(--orange)}.badge.talking{background:var(--blue)}.badge.sold{background:var(--gray)}.soldOverlay{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-size:34px;font-weight:900;color:white;background:rgba(0,0,0,.35);z-index:2;letter-spacing:.12em}.property.sold .soldOverlay{display:flex}
+.body{padding:22px}.tag{display:inline-block;background:var(--goldSoft);color:#8a642b;border-radius:999px;padding:4px 10px;font-weight:900;font-size:12px;margin-bottom:8px}.property h3{font-size:22px;line-height:1.35;margin:0 0 6px}.price{font-size:23px;color:var(--gold);font-weight:900;margin:8px 0 12px}.spec{display:grid;gap:5px;color:var(--muted);font-size:14px;margin-bottom:18px}
+.detailHero{padding:38px 0 20px}.detailBox{background:white;border:1px solid var(--line);border-radius:34px;padding:24px;box-shadow:var(--shadow);margin-bottom:34px}.detailTop{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}.detailGallery{position:relative;height:430px;overflow-x:auto;display:flex;scroll-snap-type:x mandatory;border-radius:22px;background:#ddd;-webkit-overflow-scrolling:touch}.detailGallery::-webkit-scrollbar{display:none}.detailGallery img{height:430px;min-width:100%;width:100%;object-fit:cover;scroll-snap-align:start;cursor:pointer}.thumbRow{display:flex;gap:8px;margin-top:10px;overflow-x:auto}.thumbRow img{width:86px;height:60px;object-fit:cover;border-radius:10px;cursor:pointer;border:2px solid transparent}.thumbRow img:hover{border-color:var(--gold)}.detailText h1{color:var(--ink);font-size:clamp(34px,5vw,60px)}.detailText p{color:var(--muted)}
 .infoGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}.infoBox{background:#fbfaf7;border:1px solid var(--line);border-radius:18px;padding:15px}.infoBox b{display:block;color:var(--muted);font-size:13px}.infoBox span{font-weight:900;font-size:18px}.detailSections{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detailCard{background:#fbfaf7;border:1px solid var(--line);border-radius:20px;padding:20px}.detailCard h3{font-size:20px;margin:0 0 12px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:10px 0;text-align:left;vertical-align:top}th{width:35%;color:var(--muted)}ul.points{list-style:none;padding:0;margin:0;display:grid;gap:9px}.points li{position:relative;padding-left:1.35em}.points li:before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:900}
-.buy{background:var(--black);color:white;padding:80px 0}.buy .wrap{display:grid;grid-template-columns:1fr .9fr;gap:30px;align-items:center}.buy h2{font-size:clamp(42px,7vw,86px);line-height:1;letter-spacing:-.06em;margin:0 0 16px}.buy p{color:rgba(255,255,255,.74);font-size:18px}.buyCard{background:white;color:var(--ink);border-radius:28px;padding:28px}.buyCard ul{color:var(--muted);padding-left:1.2em}
-.contact{background:#ece5d8;padding:76px 0}.contactInner{max-width:940px;margin:auto;text-align:center;padding:0 20px}.contact h2{font-size:clamp(34px,5vw,62px);line-height:1.08;letter-spacing:-.04em;margin:0 0 10px}.contact p{color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 20px}.fixed{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--gold);color:white;padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 14px 34px rgba(183,137,58,.35)}.back{margin:22px 0;display:inline-flex;color:var(--muted);font-weight:900}
-@media(max-width:900px){.links{display:none}.nav{padding:13px 16px}.hero{padding:22px 0 28px}.wrap{padding:0 16px}.heroBox{min-height:500px;border-radius:28px}.heroText{padding:34px 28px 46px}.heroText .btn{width:100%;max-width:280px}.topCards,.categoryCards,.grid,.detailTop,.infoGrid,.detailSections,.buy .wrap{grid-template-columns:1fr}.head{display:block}.head p{margin-top:12px}section{padding:56px 0}.gallery{grid-template-columns:1fr 1fr}.gallery .main{grid-column:1/-1;grid-row:auto;height:260px}.gallery img{height:128px}.detailBox{padding:16px;border-radius:26px}.buy,.contact{padding:60px 0}.fixed{left:16px;right:16px;text-align:center}}
-
-/* slider / new badge / contact improvements */
-.thumb.slider{height:230px;overflow:hidden;background:#ddd}
-.thumb.slider img{position:absolute;inset:0;width:100%;height:230px;object-fit:cover;opacity:0;animation:propertySlide 9s infinite}
-.thumb.slider img:nth-child(1){animation-delay:0s}
-.thumb.slider img:nth-child(2){animation-delay:3s}
-.thumb.slider img:nth-child(3){animation-delay:6s}
-@keyframes propertySlide{
-  0%{opacity:0}
-  8%{opacity:1}
-  33%{opacity:1}
-  42%{opacity:0}
-  100%{opacity:0}
+.buy{background:var(--black);color:white;padding:80px 0}.buy .wrap{display:grid;grid-template-columns:1fr .9fr;gap:30px;align-items:center}.buy h2{font-size:clamp(42px,7vw,86px);line-height:1;letter-spacing:-.06em;margin:0 0 16px}.buy p{color:rgba(255,255,255,.74);font-size:18px}.buyCard,.contactPanel{background:white;color:var(--ink);border-radius:28px;padding:28px;box-shadow:var(--shadow);border:1px solid var(--line)}.buyCard ul{color:var(--muted);padding-left:1.2em}
+.contact{background:#ece5d8;padding:76px 0}.contactInner{max-width:940px;margin:auto;text-align:center;padding:0 20px}.contact h2{font-size:clamp(34px,5vw,62px);line-height:1.08;letter-spacing:-.04em;margin:0 0 10px}.contact p{color:var(--muted)}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;align-items:center;justify-content:center;padding:20px}.lightbox.open{display:flex}.lightbox img{max-height:86vh;max-width:96vw;object-fit:contain}.lightbox button{position:absolute;top:18px;right:18px;border:0;border-radius:999px;background:white;color:black;font-size:18px;font-weight:900;padding:10px 14px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 20px}.fixed{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--green);color:white;padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 14px 34px rgba(6,199,85,.35)}.back{margin:22px 0;display:inline-flex;color:var(--muted);font-weight:900}.noResults{display:none;background:white;border:1px solid var(--line);border-radius:20px;padding:24px;text-align:center;color:var(--muted)}
+@media(max-width:900px){.links{display:none}.nav{padding:13px 16px}.hero{padding:22px 0 28px}.wrap{padding:0 16px}.heroBox{min-height:500px;border-radius:28px}.heroText{padding:34px 28px 46px}.heroText .btn{width:100%;max-width:280px}.topCards,.categoryCards,.grid,.detailTop,.infoGrid,.detailSections,.buy .wrap,.controls{grid-template-columns:1fr}.head{display:block}.head p{margin-top:12px}section{padding:56px 0}.swipe,.swipe img{height:230px}.detailGallery,.detailGallery img{height:320px}.detailBox{padding:16px;border-radius:26px}.buy,.contact{padding:60px 0}.fixed{left:16px;right:16px;text-align:center}.btns .btn{width:100%;}}
+</style></head><body><header><div class="nav"><a class="logo" href="index.html">株式会社INOUE</a><nav class="links"><a href="land.html">土地</a><a href="house.html">一戸建て</a><a href="mansion.html">マンション</a><a href="company.html">会社概要</a></nav><a class="cta" href="tel:08067005476">電話する</a></div></header><a class="fixed" href="https://line.me/R/ti/p/@750kudfv" target="_blank">LINEで相談</a><main><section class="detailHero"><div class="wrap"><a class="back" href="javascript:history.back()">← 一覧へ戻る</a><article class="detailBox"><div class="detailTop"><div><div class="detailGallery"><img src="images/mansion06.jpg" alt="奈良市 中古マンション 写真1"><img src="images/mansion07.jpg" alt="奈良市 中古マンション 写真2"><img src="images/mansion08.jpg" alt="奈良市 中古マンション 写真3"></div><div class="thumbRow"><img src="images/mansion06.jpg" onclick="openLightbox('images/mansion06.jpg')" alt="サムネイル1"><img src="images/mansion07.jpg" onclick="openLightbox('images/mansion07.jpg')" alt="サムネイル2"><img src="images/mansion08.jpg" onclick="openLightbox('images/mansion08.jpg')" alt="サムネイル3"></div></div><div class="detailText"><span class="badge changed">価格変更</span><h1>奈良市 中古マンション</h1><div class="price">価格相談</div><p>奈良県奈良市の物件情報です。写真は横スワイプ、タップで拡大して確認できます。</p><div class="btns"><a class="btn dark" href="tel:08067005476">電話で相談する</a><a class="btn line" href="https://line.me/R/ti/p/@750kudfv" target="_blank">LINEで相談する</a></div></div></div><div class="infoGrid"><div class="infoBox"><b>所在地</b><span>奈良県奈良市</span></div><div class="infoBox"><b>間取り</b><span>2LDK</span></div><div class="infoBox"><b>専有面積</b><span>約58㎡</span></div><div class="infoBox"><b>価格</b><span>相談</span></div></div><div class="detailSections"><div class="detailCard"><h3>物件概要</h3><table><tr><th>所在地</th><td>奈良県奈良市</td></tr><tr><th>間取り</th><td>2LDK</td></tr><tr><th>専有面積</th><td>約58㎡</td></tr><tr><th>価格</th><td>相談</td></tr><tr><th>ステータス</th><td>価格変更</td></tr></table></div><div class="detailCard"><h3>おすすめポイント</h3><ul class="points"><li>奈良市内の中古マンション</li><li>居住用・収益用どちらも相談可能</li><li>コンパクトな2LDK</li></ul></div></div></article></div></section></main><footer>株式会社INOUE｜奈良県の不動産売買・買取<br>TEL：080-6700-5476｜営業時間：10:00〜19:00｜定休日：土日休み<br>© 2026 INOUE Co., Ltd.</footer><div class="lightbox" id="lightbox"><button id="lightboxClose">閉じる</button><img id="lightboxImg" src="" alt=""></div>
+<script>
+function initPropertyTools(){
+  var q=document.getElementById('q'), cat=document.getElementById('cat'), max=document.getElementById('maxPrice'), sort=document.getElementById('sort');
+  var cards=[].slice.call(document.querySelectorAll('.property[data-title]'));
+  function apply(){
+    var query=(q&&q.value||'').toLowerCase();
+    var c=(cat&&cat.value||'');
+    var m=parseInt(max&&max.value||'0',10);
+    cards.forEach(function(card){
+      var text=(card.dataset.title+' '+card.dataset.area+' '+card.dataset.cat).toLowerCase();
+      var price=parseInt(card.dataset.price||'0',10);
+      var ok=true;
+      if(query && text.indexOf(query)===-1) ok=false;
+      if(c && card.dataset.cat!==c) ok=false;
+      if(m && price && price>m) ok=false;
+      card.classList.toggle('hidden',!ok);
+    });
+    var visible=cards.filter(function(x){return !x.classList.contains('hidden')});
+    var no=document.querySelector('.noResults'); if(no) no.style.display=visible.length?'none':'block';
+    if(sort){
+      var grid=document.querySelector('.grid');
+      visible.sort(function(a,b){
+        var pa=parseInt(a.dataset.price||'0',10), pb=parseInt(b.dataset.price||'0',10);
+        if(sort.value==='priceAsc') return (pa||999999)-(pb||999999);
+        if(sort.value==='priceDesc') return (pb||0)-(pa||0);
+        return 0;
+      }).forEach(function(card){grid.appendChild(card)});
+    }
+  }
+  [q,cat,max,sort].forEach(function(el){ if(el) el.addEventListener('input',apply); if(el) el.addEventListener('change',apply); });
+  apply();
+  var today=new Date(); today.setHours(0,0,0,0);
+  document.querySelectorAll('[data-new-until]').forEach(function(el){
+    var until=new Date(el.dataset.newUntil+'T00:00:00');
+    if(today>until) el.style.display='none';
+  });
 }
-.newBadge{
-  position:absolute;
-  top:12px;
-  right:12px;
-  z-index:3;
-  background:#e11d48;
-  color:white;
-  border-radius:999px;
-  padding:6px 11px;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.08em;
-  box-shadow:0 8px 20px rgba(225,29,72,.32);
+function openLightbox(src){
+  var lb=document.getElementById('lightbox'); var img=document.getElementById('lightboxImg');
+  if(lb&&img){img.src=src;lb.classList.add('open');}
 }
-.thumb .photoCount{right:12px;bottom:12px;z-index:3}
-.contactPanel{
-  background:white;
-  color:var(--ink);
-  border-radius:28px;
-  padding:26px;
-  box-shadow:var(--shadow);
-  border:1px solid var(--line);
-}
-.contactPanel p{color:var(--muted)!important}
-.contactPanel .btn.dark{background:var(--black);color:white}
-.contactPanel .btn.line{background:#06c755;color:white;border-color:#06c755}
-.contactInner .btns, .contactPanel .btns{justify-content:center}
-@media(max-width:900px){
-  .thumb.slider,.thumb.slider img{height:230px}
-  .contactPanel{padding:22px}
-}
-
-</style>
-</head>
-<body>
-<header><div class="nav"><a class="logo" href="index.html">株式会社INOUE</a><nav class="links"><a href="land.html">土地</a><a href="house.html">一戸建て</a><a href="mansion.html">マンション</a><a href="company.html">会社概要</a></nav><a class="cta" href="tel:08067005476">電話する</a></div></header><a class="fixed" href="https://line.me/R/ti/p/@750kudfv" target="_blank">LINEで相談</a>
-<main>
-
-<section class="detailHero">
-<div class="wrap">
-<a class="back" href="mansion.html">← マンション一覧へ戻る</a>
-<article class="detailBox">
-<div class="detailTop">
-<div class="gallery"><img class="main" src="images/mansion06.jpg" alt="奈良市 中古マンション 写真1"><img src="images/mansion07.jpg" alt="奈良市 中古マンション 写真2"><img src="images/mansion08.jpg" alt="奈良市 中古マンション 写真3"><img src="images/mansion09.jpg" alt="奈良市 中古マンション 写真4"><img src="images/mansion10.jpg" alt="奈良市 中古マンション 写真5"></div>
-<div class="detailText">
-<span class="tag">マンション</span>
-<h1>奈良市 中古マンション</h1>
-<div class="price">価格相談</div>
-<p>奈良市内の中古マンション。居住用だけでなく、収益物件としての相談も可能です。</p>
-<div class="btns">
-<a class="btn dark" href="tel:08067005476">電話で相談する</a>
-<a class="btn line" href="https://line.me/R/ti/p/@750kudfv" target="_blank">LINEで相談する</a>
-</div>
-</div>
-</div>
-<div class="infoGrid"><div class="infoBox"><b>所在地</b><span>奈良県奈良市</span></div><div class="infoBox"><b>間取り</b><span>2LDK</span></div><div class="infoBox"><b>専有面積</b><span>約58㎡</span></div><div class="infoBox"><b>価格</b><span>相談</span></div></div>
-<div class="detailSections">
-<div class="detailCard"><h3>物件概要</h3><table><tr><th>所在地</th><td>奈良県奈良市〇〇町</td></tr><tr><th>種別</th><td>中古マンション</td></tr><tr><th>間取り</th><td>2LDK</td></tr><tr><th>所在階</th><td>お問い合わせください</td></tr><tr><th>管理費</th><td>お問い合わせください</td></tr><tr><th>取引形態</th><td>売主</td></tr></table></div>
-<div class="detailCard"><h3>おすすめポイント</h3><ul class="points"><li>奈良市内の中古マンション</li><li>居住用・収益用どちらも相談可能</li><li>コンパクトな2LDK</li><li>資料請求に対応</li></ul></div>
-</div>
-</article>
-</div>
-</section>
-
-</main>
-<footer>株式会社INOUE｜奈良県の不動産売買・買取<br>TEL：080-6700-5476｜営業時間：10:00〜19:00｜定休日：土日休み<br>© 2026 INOUE Co., Ltd.</footer>
-</body>
-</html>
+document.addEventListener('DOMContentLoaded',function(){
+  initPropertyTools();
+  document.querySelectorAll('.swipe img,.detailGallery img').forEach(function(img){
+    img.addEventListener('click',function(){openLightbox(img.src)});
+  });
+  var close=document.getElementById('lightboxClose');
+  if(close) close.addEventListener('click',function(){document.getElementById('lightbox').classList.remove('open')});
+});
+</script>
+</body></html>

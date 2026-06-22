@@ -1131,6 +1131,64 @@ header{
   }
 }
 
+
+/* === LINE BUTTON REDUCE / FIXED BUTTON SMALL === */
+.fixed{
+  left:auto!important;
+  right:18px!important;
+  bottom:18px!important;
+  width:auto!important;
+  min-width:auto!important;
+  max-width:none!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:6px!important;
+  padding:13px 18px!important;
+  border-radius:999px!important;
+  font-size:15px!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  box-shadow:0 14px 34px rgba(6,199,85,.35)!important;
+}
+.fixed::before{
+  content:"LINE";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:white;
+  color:#06c755;
+  font-size:10px;
+  font-weight:900;
+}
+@media(max-width:900px){
+  .fixed{
+    left:auto!important;
+    right:14px!important;
+    bottom:14px!important;
+    width:auto!important;
+    padding:11px 15px!important;
+    font-size:14px!important;
+    text-align:center!important;
+  }
+  .fixed::before{
+    width:26px;
+    height:26px;
+    font-size:9px;
+  }
+}
+@media(max-width:520px){
+  .fixed{
+    right:12px!important;
+    bottom:12px!important;
+    padding:10px 13px!important;
+    font-size:13px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1175,7 +1233,6 @@ header{
         <p>奈良県内の土地・一戸建て・マンションを買取相談受付中。空き家、相続物件、古家付き土地、早く売りたい物件もご相談ください。</p>
         <div class="btns">
           <a class="btn phoneWhite" href="tel:08067005476">電話で相談する</a>
-          <a class="btn line" href="https://line.me/R/ti/p/@750kudfv" target="_blank">LINEで相談する</a>
         </div>
       </div>
 
@@ -1187,7 +1244,7 @@ header{
           <li>売却予定のマンション</li>
           <li>相続した不動産</li>
         </ul>
-        <a class="btn line" href="https://line.me/R/ti/p/@750kudfv" target="_blank" style="width:100%">LINEで買取相談</a>
+        <a class="btn dark" href="tel:08067005476" style="width:100%">電話で買取相談</a>
       </div>
     </div>
 
@@ -1384,10 +1441,7 @@ header{
     <div class="contactPanel">
       <h2>お問い合わせ</h2>
       <p>営業時間：10:00〜19:00 / 定休日：土日休み<br>物件の詳細確認、内覧相談、売却・買取相談はこちらから。</p>
-      <div class="btns" style="justify-content:center">
-        <a class="btn outline" href="tel:08067005476">電話で相談する</a>
-        <a class="btn line" href="https://line.me/R/ti/p/@750kudfv" target="_blank">LINEで相談する</a>
-      </div>
+      <div class="btns" style="justify-content:center"><a class="btn outline" href="tel:08067005476">電話で相談する</a></div>
     </div>
   </div>
 </section>

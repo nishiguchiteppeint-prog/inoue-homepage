@@ -2832,6 +2832,49 @@ header{
   font-weight:900;
 }
 
+
+/* === FINAL COMPANY SMALL HEADER ADJUST === */
+@media(max-width:900px){
+  .links{
+    grid-template-columns:1.18fr 1.18fr 1.18fr .58fr!important;
+    gap:5px!important;
+  }
+
+  .links a[href="company.html"]{
+    height:48px!important;
+    max-width:100%!important;
+    border-radius:8px!important;
+    background:#1a1a1a!important;
+  }
+
+  .links a[href="company.html"]::after{
+    content:"会社"!important;
+    font-size:10px!important;
+    color:#d7ad5a!important;
+    letter-spacing:.02em!important;
+  }
+
+  .links a[href="land.html"]::after,
+  .links a[href="house.html"]::after{
+    font-size:13px!important;
+  }
+
+  .links a[href="mansion.html"]::after{
+    font-size:11px!important;
+  }
+}
+
+@media(max-width:380px){
+  .links{
+    grid-template-columns:1.18fr 1.18fr 1.18fr .55fr!important;
+    gap:4px!important;
+  }
+
+  .links a[href="company.html"]::after{
+    font-size:9px!important;
+  }
+}
+
 </style>
 
 <style>

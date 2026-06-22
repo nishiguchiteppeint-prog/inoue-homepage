@@ -205,6 +205,155 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
   .btns .btn{width:100%}
   .fixed{left:16px;right:16px;text-align:center}
 }
+
+/* free-material split hero */
+.hero{
+  background:#0f0f0f;
+  color:white;
+  padding:0;
+}
+.heroGrid{
+  max-width:none;
+  padding:0;
+  display:block;
+}
+.heroSplit{
+  position:relative;
+  min-height:680px;
+  overflow:hidden;
+  display:grid;
+  align-items:center;
+}
+.heroSplitBg{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+}
+.heroPanel{
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  transform:skewX(-8deg) scale(1.08);
+  overflow:hidden;
+}
+.heroPanel:first-child{
+  transform-origin:left center;
+}
+.heroPanel:last-child{
+  transform-origin:right center;
+}
+.heroPanel::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.34);
+}
+.heroPanel.land{
+  background-image:url("images/hero-land.jpg"), url("images/land11.jpg");
+}
+.heroPanel.house{
+  background-image:url("images/hero-house.jpg"), url("images/house01.jpg");
+}
+.heroPanel.mansion{
+  background-image:url("images/hero-mansion.jpg"), url("images/mansion01.jpg");
+}
+.heroOverlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.48),rgba(0,0,0,.18)),
+    linear-gradient(0deg,rgba(0,0,0,.28),rgba(0,0,0,.08));
+  z-index:1;
+}
+.heroContent{
+  position:relative;
+  z-index:2;
+  max-width:1240px;
+  width:100%;
+  margin:auto;
+  padding:84px 22px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:48px;
+  align-items:center;
+}
+.heroTextBox{
+  max-width:650px;
+}
+.heroTextBox h1{
+  color:white;
+}
+.heroTextBox p{
+  color:rgba(255,255,255,.86);
+}
+.heroDots{
+  position:absolute;
+  left:50%;
+  bottom:30px;
+  transform:translateX(-50%);
+  z-index:3;
+  display:flex;
+  gap:10px;
+}
+.heroDots span{
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:rgba(255,255,255,.45);
+}
+.heroDots span:first-child{
+  background:white;
+}
+.purchaseCard{
+  background:rgba(255,255,255,.96);
+  color:var(--ink);
+  border-radius:32px;
+  padding:34px;
+  box-shadow:var(--shadow);
+}
+.purchaseCard h2{
+  font-size:30px;
+  margin:0 0 18px;
+}
+.purchaseCard li{
+  margin-bottom:9px;
+  color:var(--muted);
+}
+.hero .btn.outline,
+.hero .btn.phoneWhite{
+  background:white;
+  color:var(--black);
+  border-color:white;
+  box-shadow:0 12px 30px rgba(255,255,255,.18);
+}
+@media(max-width:900px){
+  .heroSplit{
+    min-height:auto;
+  }
+  .heroSplitBg{
+    grid-template-columns:1fr;
+  }
+  .heroPanel{
+    position:absolute;
+    inset:0;
+    transform:none;
+  }
+  .heroPanel.house,
+  .heroPanel.mansion{
+    display:none;
+  }
+  .heroContent{
+    grid-template-columns:1fr;
+    padding:54px 16px 82px;
+    gap:28px;
+  }
+  .purchaseCard{
+    padding:26px;
+    border-radius:26px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -225,20 +374,27 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
 
 <main>
 
+
 <section class="hero">
-  <div class="wrap">
-    <div class="heroGrid">
-      <div class="heroPhoto">
-        <div>
-          <div class="eyebrow">WE BUY PROPERTY</div>
-          <h1>物件、<br>買います。</h1>
-          <p>奈良県内の土地・一戸建て・マンションを買取相談受付中。空き家、相続物件、古家付き土地、早く売りたい物件もご相談ください。</p>
-          <div class="btns">
-            <a class="btn outline" href="tel:08067005476">電話で相談する</a>
-            <a class="btn line" href="https://line.me/R/ti/p/@750kudfv" target="_blank">LINEで相談する</a>
-          </div>
+  <div class="heroSplit">
+    <div class="heroSplitBg">
+      <div class="heroPanel land"></div>
+      <div class="heroPanel house"></div>
+      <div class="heroPanel mansion"></div>
+    </div>
+    <div class="heroOverlay"></div>
+
+    <div class="heroContent">
+      <div class="heroTextBox">
+        <div class="eyebrow">WE BUY PROPERTY</div>
+        <h1>物件、<br>買います。</h1>
+        <p>奈良県内の土地・一戸建て・マンションを買取相談受付中。空き家、相続物件、古家付き土地、早く売りたい物件もご相談ください。</p>
+        <div class="btns">
+          <a class="btn phoneWhite" href="tel:08067005476">電話で相談する</a>
+          <a class="btn line" href="https://line.me/R/ti/p/@750kudfv" target="_blank">LINEで相談する</a>
         </div>
       </div>
+
       <div class="purchaseCard">
         <h2>買取相談できる物件</h2>
         <ul>
@@ -249,6 +405,10 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
         </ul>
         <a class="btn line" href="https://line.me/R/ti/p/@750kudfv" target="_blank" style="width:100%">LINEで買取相談</a>
       </div>
+    </div>
+
+    <div class="heroDots">
+      <span></span><span></span><span></span>
     </div>
   </div>
 </section>

@@ -3059,6 +3059,28 @@ header .navCall{
 }
 </style>
 
+
+<style id="pc-header-layout-fix">
+@media(min-width:901px){
+  header .nav{
+    display:grid!important;
+    grid-template-columns:220px 1fr 110px!important;
+    grid-template-areas:none!important;
+  }
+  .companyBtn{
+    display:none!important;
+  }
+  header .links{
+    display:grid!important;
+    grid-template-columns:1fr 1fr 1fr .7fr!important;
+    gap:8px!important;
+  }
+  header .links a[href="company.html"]{
+    display:flex!important;
+  }
+}
+</style>
+
 </head>
 <body>
 

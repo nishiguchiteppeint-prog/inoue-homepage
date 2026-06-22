@@ -650,13 +650,204 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
   }
 }
 
+
+/* === HEADER DESIGN TYPE 4 : LARGE VISUAL BUTTONS === */
+header{
+  position:sticky!important;
+  top:0!important;
+  z-index:90!important;
+  background:#111!important;
+  border-bottom:1px solid rgba(255,255,255,.12)!important;
+  overflow:visible!important;
+}
+.nav{
+  max-width:none!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:300px 1fr 230px!important;
+  align-items:stretch!important;
+  gap:0!important;
+  min-height:112px!important;
+}
+.logo{
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  padding:24px 28px!important;
+  background:#111!important;
+  color:white!important;
+  border-right:1px solid rgba(255,255,255,.14)!important;
+}
+.logo img{
+  width:48px!important;
+  height:48px!important;
+  object-fit:contain!important;
+}
+.logoText{
+  display:flex!important;
+  flex-direction:column!important;
+  line-height:1.05!important;
+}
+.logoText strong{
+  color:white!important;
+  font-size:22px!important;
+  letter-spacing:.08em!important;
+}
+.logoText span{
+  color:rgba(255,255,255,.75)!important;
+  font-size:12px!important;
+  letter-spacing:.18em!important;
+  margin-top:5px!important;
+}
+.links{
+  display:grid!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:0!important;
+  background:#111!important;
+  border:0!important;
+  border-radius:0!important;
+  padding:0!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+}
+.links a{
+  position:relative!important;
+  min-width:0!important;
+  height:112px!important;
+  border-left:1px solid rgba(255,255,255,.18)!important;
+  border-radius:0!important;
+  padding:0!important;
+  color:white!important;
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:flex-start!important;
+  overflow:hidden!important;
+  background-size:cover!important;
+  background-position:center!important;
+  transition:.25s ease!important;
+}
+.links a::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  width:auto!important;
+  height:auto!important;
+  border-radius:0!important;
+  background:linear-gradient(90deg,rgba(0,0,0,.70),rgba(0,0,0,.18))!important;
+  z-index:1!important;
+}
+.links a::after{
+  position:relative!important;
+  z-index:2!important;
+  display:block!important;
+  color:white!important;
+  font-size:23px!important;
+  font-weight:900!important;
+  padding:0 24px 24px!important;
+  text-shadow:0 3px 18px rgba(0,0,0,.55)!important;
+}
+.links a[href="land.html"]{
+  background-image:url("images/hero-land.jpg"),url("images/land11.jpg")!important;
+}
+.links a[href="land.html"]::after{
+  content:"土地  →"!important;
+}
+.links a[href="house.html"]{
+  background-image:url("images/hero-house.jpg"),url("images/house01.jpg")!important;
+}
+.links a[href="house.html"]::after{
+  content:"一軒家  →"!important;
+}
+.links a[href="mansion.html"]{
+  background-image:url("images/hero-mansion.jpg"),url("images/mansion01.jpg")!important;
+}
+.links a[href="mansion.html"]::after{
+  content:"マンション  →"!important;
+}
+.links a[href="company.html"]{
+  display:none!important;
+}
+.links a:hover{
+  transform:none!important;
+  filter:brightness(1.08)!important;
+}
+.links a:hover::before{
+  background:linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.08))!important;
+}
+.navCall{
+  height:112px!important;
+  border-radius:0!important;
+  background:#111!important;
+  color:#d7ad5a!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:18px!important;
+  font-weight:900!important;
+  border-left:1px solid rgba(255,255,255,.14)!important;
+  box-shadow:none!important;
+}
+.navCall::before{
+  content:"☎";
+  margin-right:8px;
+}
+.navCall:hover{
+  background:#181818!important;
+}
+@media(max-width:900px){
+  .nav{
+    grid-template-columns:1fr auto!important;
+    min-height:auto!important;
+  }
+  .logo{
+    padding:14px 16px!important;
+  }
+  .logo img{
+    width:38px!important;
+    height:38px!important;
+  }
+  .logoText strong{
+    font-size:18px!important;
+  }
+  .logoText span{
+    display:none!important;
+  }
+  .navCall{
+    height:auto!important;
+    min-height:66px!important;
+    padding:0 18px!important;
+    border-radius:0!important;
+    font-size:15px!important;
+  }
+  .links{
+    grid-column:1/-1!important;
+    display:flex!important;
+    overflow-x:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+  .links::-webkit-scrollbar{
+    display:none!important;
+  }
+  .links a{
+    min-width:74vw!important;
+    height:108px!important;
+  }
+  .links a::after{
+    font-size:22px!important;
+    padding:0 20px 20px!important;
+  }
+}
+
 </style>
 </head>
 <body>
 
 <header>
   <div class="nav">
-    <a class="logo" href="index.html"><img src="logo-inoue.svg" alt="株式会社INOUE ロゴ"><span class="logoText"><strong>株式会社INOUE</strong><span>REAL ESTATE</span></span></a>
+    <a class="logo" href="index.html">
+      <img src="logo-inoue.svg" alt="株式会社INOUE ロゴ">
+      <span class="logoText"><strong>株式会社INOUE</strong><span>REAL ESTATE</span></span>
+    </a>
     <nav class="links">
       <a href="land.html">土地</a>
       <a href="house.html">一軒家</a>
@@ -674,7 +865,7 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
   <div class="wrap">
     <div class="head">
       <h2>一軒家一覧</h2>
-      <p>一戸建て物件のみを表示しています。</p>
+      <p>一軒家物件のみを表示しています。</p>
     </div>
     
 <div class="controls">

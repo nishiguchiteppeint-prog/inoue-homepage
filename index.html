@@ -3200,6 +3200,42 @@ header .navCall{
 }
 </style>
 
+
+<style id="company-button-final-fix">
+@media(max-width:900px){
+  header .nav{
+    display:grid!important;
+    grid-template-columns:1fr 64px 72px!important;
+    grid-template-areas:
+      "logo call company"
+      "menu menu menu"!important;
+    gap:6px!important;
+  }
+
+  .companyBtn{
+    grid-area:company!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    height:54px!important;
+    border-radius:9px!important;
+    background:#1b1b1b!important;
+    color:#d7ad5a!important;
+    font-size:11px!important;
+    font-weight:900!important;
+    text-decoration:none!important;
+  }
+
+  header .links{
+    grid-template-columns:1fr 1fr 1fr!important;
+  }
+
+  header .links a[href="company.html"]{
+    display:none!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -3208,6 +3244,8 @@ header .navCall{
     <a class="logo" href="index.html">
       <img src="logo-inoue.svg" alt="株式会社INOUE ロゴ">
     </a>
+
+    <a class="companyBtn" href="company.html">会社概要</a>
 
     <nav class="links">
       <a href="land.html">土地</a>

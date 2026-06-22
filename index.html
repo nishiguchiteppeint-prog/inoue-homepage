@@ -382,6 +382,121 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
   }
 }
 
+
+/* === DETAIL GALLERY / LIGHTBOX ARROW FIX === */
+.galleryWrap{
+  position:relative;
+}
+.galleryNav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:6;
+  width:52px;
+  height:52px;
+  border:0;
+  border-radius:50%;
+  background:rgba(0,0,0,.38);
+  color:white;
+  font-size:34px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  backdrop-filter:blur(4px);
+}
+.galleryNav:hover{
+  background:rgba(0,0,0,.58);
+}
+.galleryNav.prev{
+  left:14px;
+}
+.galleryNav.next{
+  right:14px;
+}
+.detailGallery{
+  scroll-behavior:smooth;
+}
+.lightbox{
+  gap:0;
+}
+.lightboxArrow{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:1001;
+  width:58px;
+  height:58px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.18);
+  color:white;
+  font-size:42px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+.lightboxArrow:hover{
+  background:rgba(255,255,255,.30);
+}
+.lightboxArrow.prev{
+  left:42px;
+}
+.lightboxArrow.next{
+  right:42px;
+}
+.lightbox button#lightboxClose{
+  top:24px;
+  right:24px;
+  z-index:1002;
+  background:white;
+  color:black;
+}
+.lightboxCount{
+  position:fixed;
+  left:50%;
+  bottom:28px;
+  transform:translateX(-50%);
+  z-index:1002;
+  background:rgba(0,0,0,.55);
+  color:white;
+  border-radius:999px;
+  padding:8px 14px;
+  font-weight:900;
+}
+@media(max-width:900px){
+  .galleryNav{
+    width:44px;
+    height:44px;
+    font-size:28px;
+  }
+  .galleryNav.prev{
+    left:10px;
+  }
+  .galleryNav.next{
+    right:10px;
+  }
+  .lightboxArrow{
+    width:48px;
+    height:48px;
+    font-size:34px;
+  }
+  .lightboxArrow.prev{
+    left:14px;
+  }
+  .lightboxArrow.next{
+    right:14px;
+  }
+  .lightbox button#lightboxClose{
+    top:16px;
+    right:16px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -649,66 +764,141 @@ footer{background:#111;color:rgba(255,255,255,.75);text-align:center;font-size:1
 </footer>
 
 
+
 <div class="lightbox" id="lightbox">
   <button id="lightboxClose">閉じる</button>
+  <button class="lightboxArrow prev" id="lightboxPrev" type="button">‹</button>
   <img id="lightboxImg" src="" alt="">
+  <button class="lightboxArrow next" id="lightboxNext" type="button">›</button>
+  <div class="lightboxCount" id="lightboxCount">1 / 1</div>
 </div>
 
 
 <script>
-function openLightbox(src){
-  const lb=document.getElementById('lightbox');
-  const img=document.getElementById('lightboxImg');
-  if(lb&&img){img.src=src;lb.classList.add('open');}
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function updateLightbox(){
+  const img = document.getElementById('lightboxImg');
+  const count = document.getElementById('lightboxCount');
+  if(!img || !lightboxImages.length) return;
+  img.src = lightboxImages[lightboxIndex];
+  if(count) count.textContent = (lightboxIndex + 1) + ' / ' + lightboxImages.length;
 }
-document.addEventListener('DOMContentLoaded',()=>{
-  const q=document.getElementById('q');
-  const cat=document.getElementById('cat');
-  const max=document.getElementById('maxPrice');
-  const sort=document.getElementById('sort');
-  const cards=[...document.querySelectorAll('.property[data-title]')];
+
+function openLightbox(src, groupImages){
+  const lb = document.getElementById('lightbox');
+  if(groupImages && groupImages.length){
+    lightboxImages = groupImages;
+    lightboxIndex = Math.max(0, lightboxImages.indexOf(src));
+  }else{
+    lightboxImages = [src];
+    lightboxIndex = 0;
+  }
+  if(lb){
+    lb.classList.add('open');
+    updateLightbox();
+  }
+}
+
+function lightboxMove(step){
+  if(!lightboxImages.length) return;
+  lightboxIndex = (lightboxIndex + step + lightboxImages.length) % lightboxImages.length;
+  updateLightbox();
+}
+
+function scrollGallery(button, direction){
+  const wrap = button.closest('.galleryWrap');
+  const gallery = wrap ? wrap.querySelector('.detailGallery') : null;
+  if(!gallery) return;
+  const amount = gallery.clientWidth * direction;
+  gallery.scrollBy({left: amount, behavior: 'smooth'});
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('[data-new-until]').forEach(function(el){
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const until = new Date(el.dataset.newUntil + 'T00:00:00');
+    if(today > until) el.style.display = 'none';
+  });
+
+  const q = document.getElementById('q');
+  const cat = document.getElementById('cat');
+  const max = document.getElementById('maxPrice');
+  const sort = document.getElementById('sort');
+  const cards = Array.from(document.querySelectorAll('.property[data-title]'));
 
   function apply(){
-    const query=(q?.value||'').toLowerCase();
-    const c=cat?.value||'';
-    const m=parseInt(max?.value||'0',10);
-    cards.forEach(card=>{
-      const text=(card.dataset.title+' '+card.dataset.area+' '+card.dataset.cat).toLowerCase();
-      const price=parseInt(card.dataset.price||'0',10);
-      let ok=true;
-      if(query && !text.includes(query)) ok=false;
-      if(c && card.dataset.cat!==c) ok=false;
-      if(m && price && price>m) ok=false;
-      card.classList.toggle('hidden',!ok);
+    const query = (q && q.value || '').toLowerCase();
+    const c = cat && cat.value || '';
+    const m = parseInt(max && max.value || '0', 10);
+
+    cards.forEach(function(card){
+      const text = (card.dataset.title + ' ' + card.dataset.area + ' ' + card.dataset.cat).toLowerCase();
+      const price = parseInt(card.dataset.price || '0', 10);
+      let ok = true;
+      if(query && !text.includes(query)) ok = false;
+      if(c && card.dataset.cat !== c) ok = false;
+      if(m && price && price > m) ok = false;
+      card.classList.toggle('hidden', !ok);
     });
-    const visible=cards.filter(x=>!x.classList.contains('hidden'));
-    const no=document.querySelector('.noResults');
-    if(no) no.style.display=visible.length?'none':'block';
+
+    const visible = cards.filter(function(x){ return !x.classList.contains('hidden'); });
+    const no = document.querySelector('.noResults');
+    if(no) no.style.display = visible.length ? 'none' : 'block';
+
     if(sort){
-      const grid=document.querySelector('.grid');
-      visible.sort((a,b)=>{
-        const pa=parseInt(a.dataset.price||'0',10);
-        const pb=parseInt(b.dataset.price||'0',10);
-        if(sort.value==='priceAsc') return (pa||999999)-(pb||999999);
-        if(sort.value==='priceDesc') return (pb||0)-(pa||0);
+      const grid = document.querySelector('.grid');
+      visible.sort(function(a,b){
+        const pa = parseInt(a.dataset.price || '0', 10);
+        const pb = parseInt(b.dataset.price || '0', 10);
+        if(sort.value === 'priceAsc') return (pa || 999999) - (pb || 999999);
+        if(sort.value === 'priceDesc') return (pb || 0) - (pa || 0);
         return 0;
-      }).forEach(card=>grid.appendChild(card));
+      }).forEach(function(card){ if(grid) grid.appendChild(card); });
     }
   }
-  [q,cat,max,sort].forEach(el=>{if(el){el.addEventListener('input',apply);el.addEventListener('change',apply);}});
+
+  [q, cat, max, sort].forEach(function(el){
+    if(el){
+      el.addEventListener('input', apply);
+      el.addEventListener('change', apply);
+    }
+  });
   apply();
 
-  const today=new Date(); today.setHours(0,0,0,0);
-  document.querySelectorAll('[data-new-until]').forEach(el=>{
-    const until=new Date(el.dataset.newUntil+'T00:00:00');
-    if(today>until) el.style.display='none';
+  document.querySelectorAll('.swipe').forEach(function(gallery){
+    const imgs = Array.from(gallery.querySelectorAll('img')).map(function(img){ return img.src; });
+    gallery.querySelectorAll('img').forEach(function(img){
+      img.addEventListener('click', function(){ openLightbox(img.src, imgs); });
+    });
   });
 
-  document.querySelectorAll('.swipe img,.detailGallery img').forEach(img=>{
-    img.addEventListener('click',()=>openLightbox(img.src));
+  document.querySelectorAll('.detailGallery').forEach(function(gallery){
+    const imgs = Array.from(gallery.querySelectorAll('img')).map(function(img){ return img.src; });
+    gallery.querySelectorAll('img').forEach(function(img){
+      img.addEventListener('click', function(){ openLightbox(img.src, imgs); });
+    });
   });
-  document.getElementById('lightboxClose')?.addEventListener('click',()=>{
-    document.getElementById('lightbox').classList.remove('open');
+
+  const close = document.getElementById('lightboxClose');
+  if(close) close.addEventListener('click', function(){
+    const lb = document.getElementById('lightbox');
+    if(lb) lb.classList.remove('open');
+  });
+
+  const lbPrev = document.getElementById('lightboxPrev');
+  const lbNext = document.getElementById('lightboxNext');
+  if(lbPrev) lbPrev.addEventListener('click', function(){ lightboxMove(-1); });
+  if(lbNext) lbNext.addEventListener('click', function(){ lightboxMove(1); });
+
+  document.addEventListener('keydown', function(e){
+    const lb = document.getElementById('lightbox');
+    if(!lb || !lb.classList.contains('open')) return;
+    if(e.key === 'ArrowLeft') lightboxMove(-1);
+    if(e.key === 'ArrowRight') lightboxMove(1);
+    if(e.key === 'Escape') lb.classList.remove('open');
   });
 });
 </script>
